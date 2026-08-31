@@ -52,7 +52,6 @@ KAFKA는 너무 무겁지 않을까? 무겁다는 이유만으로 용도의 유�
 3. vLLM으로 Gemma 올리기
 4. API 호출을 받아 vLLM으로 Gemma 호출하기
 
-- Hugging Face API Key: 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
 
 export HF_TOKEN="hf_your_actual_token_here"
 
