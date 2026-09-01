@@ -53,7 +53,7 @@ KAFKA는 너무 무겁지 않을까? 무겁다는 이유만으로 용도의 유�
 4. API 호출을 받아 vLLM으로 Gemma 호출하기
 
 
-export HF_TOKEN="hf_your_actual_token_here"
+
 
 # Gemma 2 2B Instruct 모델 서빙 예시 (VRAM 절약용)
 vllm serve google/gemma-2-2b-it \
