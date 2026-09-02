@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"><style>
+body{margin:0;background:#f0eee9;font-family:'Noto Sans KR',system-ui,sans-serif}
+a{color:#2a78d6}a:hover{color:#1b5aa6}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:700 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:700 13px/1.2 'Noto Sans KR',system-ui;color:#1a1a1a}
+.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 'Noto Sans KR',system-ui;color:rgba(0,0,0,.55)}
+.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}
+.dv-next{margin:22px 0 0;font:12px/1.5 'Noto Sans KR',system-ui;color:rgba(0,0,0,.5)}
+.dv-grp{width:100%;margin:28px 0 -4px;font:700 11px ui-monospace,Menlo,monospace;color:rgba(0,0,0,.42);letter-spacing:.08em}
+.wf{font-family:'Noto Sans KR',system-ui;background:#fff;color:#1a1a1a;font-size:13px;line-height:1.35;display:flex;flex-direction:column;box-sizing:border-box}
+.wf *{box-sizing:border-box}
+.b{border:1.5px solid #2b2b2b;border-radius:3px}
+.bd{border:1.5px dashed #a8a49c;border-radius:3px}
+.g{background:#efeeea}
+.gg{background:#f7f6f3}
+.r{display:flex;gap:8px}
+.c{display:flex;flex-direction:column;gap:8px}
+.p4{padding:4px 6px}.p6{padding:6px}.p8{padding:8px}.p12{padding:12px}
+.t{font:500 10.5px/1.4 ui-monospace,Menlo,monospace;color:#75726b;letter-spacing:.01em}
+.h{font-weight:700}
+.sm{font-size:11.5px}
+.btn{border:1.5px solid #2b2b2b;border-radius:13px;padding:2px 11px;display:inline-flex;align-items:center;gap:5px;background:#fff;white-space:nowrap;font-size:11.5px}
+.btnp{background:#2a78d6;color:#fff;border-color:#2a78d6}
+.btnw{border-color:#c25a12;color:#c25a12}
+.btnd{border-color:#c9c6bf;color:#b3afa7;background:#f7f6f3}
+.chip{border:1.5px solid #2b2b2b;border-radius:12px;padding:1px 9px;font-size:11.5px;white-space:nowrap}
+.chipd{border:1.5px dashed #a8a49c;border-radius:12px;padding:1px 9px;font-size:11.5px;color:#75726b;white-space:nowrap}
+.f1{flex:1;min-width:0;min-height:0}
+.ctr{display:flex;align-items:center;justify-content:center;text-align:center}
+.ac{color:#2a78d6}.wr{color:#c25a12}.ok{color:#3d7a4a}
+.bar{border-bottom:1.5px solid #2b2b2b}
+.sb{border-right:1.5px solid #2b2b2b}
+.line{height:9px;background:#e8e6e0;border-radius:3px}
+.line2{height:9px;background:#f0efeb;border-radius:3px}
+.cv{width:1.5px;height:14px;background:#2b2b2b}
+.ch{height:1.5px;background:#2b2b2b}
+.node{border:1.5px solid #2b2b2b;border-radius:3px;padding:3px 8px;font-size:11.5px;white-space:nowrap}
+.nodew{border-color:#c25a12;color:#c25a12;background:#fbf2ea}
+.td{font:400 11.5px/1.35 'Noto Sans KR',system-ui;padding:3px 6px;border:1.5px dashed #d5d2cb;border-radius:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tdh{font:500 10.5px/1.4 ui-monospace,Menlo,monospace;color:#75726b;padding:3px 6px;border:1.5px dashed #a8a49c;border-radius:3px}
+</style></helmet>
+
+<section class="dv-turn" id="t4">
+<div class="dv-thd"><a class="dv-tid" href="#t4">4</a><span class="dv-tname">사이트맵 · 태블릿 접힘 · 누락 기능 화면 (구조 수준)</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="4a">
+<div class="dv-olabel"><a class="dv-oid" href="#4a">4a</a>사이트맵 — 전체 화면과 이동 경로 한 장</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:600px">
+  <div class="r p8 bar"><span class="h sm f1">화면 구조 및 이동 경로</span><span class="t">실선 = 화면 전환 · 점선 = 모달</span></div>
+  <div class="r p12 f1" style="gap:0;align-items:stretch">
+    <div class="c ctr" style="width:150px;justify-content:center"><div class="node h">로그인 <span class="t">3d</span></div></div>
+    <div class="c ctr" style="width:30px;justify-content:center"><div class="ch" style="width:100%"></div></div>
+    <div class="c" style="width:230px;justify-content:center;gap:8px">
+      <div class="b p8 c" style="gap:6px">
+        <span class="h sm">메인 채팅</span>
+        <div class="bd p4 t">SOP 카드 응답 · 2a</div>
+        <div class="bd p4 t">표 응답 + 선택 칩 · 2b</div>
+        <div class="bd p4 t">타임라인 · 답변 불가 · 2c</div>
+        <div class="bd p4 t">운영 산출물 · 3a</div>
+        <span class="t">상단 🔔 → 알림 센터 2l</span>
+      </div>
+    </div>
+    <div class="c" style="width:40px;justify-content:space-around;align-items:center"><div class="ch" style="width:100%;border-top:1.5px dashed #c25a12;background:none;height:0"></div><div class="ch" style="width:100%"></div></div>
+    <div class="c f1" style="gap:8px;justify-content:center">
+      <div class="b p8 c" style="gap:6px;border-style:dashed;border-color:#c25a12">
+        <span class="h sm wr">채팅 내 모달</span>
+        <div class="r"><div class="bd p4 t f1">STT 검토 · 4c</div><div class="bd p4 t f1">파일 업로드 · 2f</div></div>
+        <div class="r"><div class="bd p4 t f1">안전 체크 · 2d</div><div class="bd p4 t f1">실행 결과 / Fail-Safe · 2e</div></div>
+        <div class="r"><div class="bd p4 t f1">정비 일지 · 2f</div><div class="bd p4 t f1">BCP 절차서 · 4e</div></div>
+      </div>
+      <div class="b p8 c" style="gap:6px">
+        <span class="h sm">사이드바 하단 → 풀스크린 뷰</span>
+        <div class="r"><div class="bd p4 t f1">워크스페이스 · 2j</div><div class="bd p4 t f1">알람·토폴로지 · 2g</div></div>
+        <div class="r"><div class="bd p4 t f1">통계 KPI · 2h</div><div class="bd p4 t f1">감사로그 · 2i</div></div>
+        <div class="r"><div class="bd p4 t f1">설정 · 2k</div><div class="bd p4 t f1">└ 계정·권한 · 3d</div></div>
+        <div class="r"><div class="bd p4 t f1">알림 센터 · 2l</div><div class="bd p4 t f1">└ 신고·검증 큐 · 4d</div></div>
+      </div>
+      <div class="bd p8 c" style="gap:6px">
+        <span class="h sm">현장 태블릿</span>
+        <div class="r"><div class="bd p4 t f1">채팅 세로 · 2m</div><div class="bd p4 t f1">채팅 가로 · 2o</div></div>
+        <div class="r"><div class="bd p4 t f1">안전 체크 · 2n</div><div class="bd p4 t f1">관리 뷰 접힘 · 4b</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="r p8" style="border-top:1.5px solid #2b2b2b"><span class="t f1">권한별 노출 — Viewer: 조회·SOP만 / Operator: + 제어 모달 / Admin: + 설정·감사로그·계정관리·검증 큐</span></div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="4b">
+<div class="dv-olabel"><a class="dv-oid" href="#4b">4b</a>태블릿 — 풀스크린 관리 뷰 접힘 규칙 (표는 카드 리스트로)</div>
+<div class="dv-card">
+<div class="wf" style="width:820px;height:560px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">◂</span><span class="h sm f1">관리 뷰 (태블릿)</span><span class="chipd">🔔</span></div>
+  <div class="r p8"><span class="chipd f1 ctr">워크스페이스</span><span class="chipd f1 ctr">알람</span><span class="chipd f1 ctr">통계</span><span class="chipd f1 ctr">감사로그</span><span class="chipd f1 ctr">설정</span></div>
+  <div class="r f1" style="gap:8px;padding:0 8px 8px">
+    <div class="c b p8 f1" style="gap:6px">
+      <span class="t">감사로그 — 컬럼 표 → 카드 리스트로 접힘</span>
+      <div class="bd p6 c" style="gap:4px"><div class="r"><div class="line f1"></div><div class="line" style="width:60px"></div></div><div class="line2" style="width:70%"></div></div>
+      <div class="bd p6 c" style="gap:4px"><div class="r"><div class="line f1"></div><div class="line" style="width:60px"></div></div><div class="line2" style="width:58%"></div></div>
+      <div class="bd p6 c" style="gap:4px"><div class="r"><div class="line2 f1"></div><div class="line2" style="width:60px"></div></div><div class="line2" style="width:64%"></div></div>
+      <div class="bd p4 t">한 행 = 카드 1장 · 상세는 탭하여 펼침 · 엑셀 다운로드는 PC 전용</div>
+      <div class="f1"></div>
+    </div>
+    <div class="c b p8 f1" style="gap:6px">
+      <span class="t">통계 KPI — 4열 카드 → 2열, 차트는 세로 스택</span>
+      <div class="r"><div class="bd p6 f1 c" style="gap:4px"><span class="t">지표</span><div class="line" style="width:60%"></div></div><div class="bd p6 f1 c" style="gap:4px"><span class="t">지표</span><div class="line" style="width:70%"></div></div></div>
+      <div class="r"><div class="bd p6 f1 c" style="gap:4px"><span class="t">지표</span><div class="line" style="width:50%"></div></div><div class="bd p6 f1 c" style="gap:4px"><span class="t">지표</span><div class="line" style="width:80%"></div></div></div>
+      <div class="bd p8 c f1 ctr" style="justify-content:center"><span class="t">차트 자리 (가로 폭 100%)</span></div>
+      <div class="bd p4 t">토폴로지 뷰는 태블릿에서 트리 목록으로 대체</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="4c">
+<div class="dv-olabel"><a class="dv-oid" href="#4c">4c</a>음성 입력(STT) — 청취 · 변환 텍스트 검토/수정 후 전송</div>
+<div class="dv-card">
+<div class="wf" style="width:460px;height:440px">
+  <div class="r p8 bar"><span class="h sm f1">음성 입력</span><span class="chipd">✕</span></div>
+  <div class="c p8 f1">
+    <div class="b p8 c ctr" style="gap:8px;justify-content:center;height:130px"><div class="chipd" style="padding:10px 16px">🎤 청취 중</div><div class="line" style="width:70%"></div><span class="t">말이 멈추면 자동 종료 · 탭하여 중단</span></div>
+    <div class="c" style="gap:4px"><span class="t">변환된 텍스트 — 전송 전 검토 및 수정</span>
+      <div class="b p8 c" style="gap:5px"><div class="line" style="width:92%"></div><div class="line" style="width:64%"></div><span class="t">현장 소음으로 인식 불확실한 구간은 밑줄 표시</span></div></div>
+    <div class="r"><span class="chipd">다시 녹음</span><span class="chipd">직접 수정</span><span class="chipd">설비명 칩 붙이기</span></div>
+    <div class="f1"></div>
+    <div class="bd p6 t">인식 실패 · 무음 시 안내 문구 자리</div>
+    <div class="r" style="justify-content:flex-end"><span class="btn">취소</span><span class="btn btnp">전송</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="4d">
+<div class="dv-olabel"><a class="dv-oid" href="#4d">4d</a>부정확 신고 처리 / Fine-RAG 검증 큐 (Admin · 알림 센터 하위)</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:520px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">◂ 알림 센터</span><span class="h sm f1">지식 품질 관리</span><span class="chipd">신고 처리</span><span class="chipd">검증 큐</span><span class="chipd">Admin 전용</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb f1">
+      <div class="r"><span class="t f1">부정확 신고 대기</span><span class="chipd">미처리</span><span class="chipd">처리됨</span></div>
+      <div class="r"><div class="tdh" style="width:80px">일시</div><div class="tdh" style="width:96px">신고자</div><div class="tdh f1">질의 / 사유</div><div class="tdh" style="width:80px">분류</div><div class="tdh" style="width:70px">상태</div></div>
+      <div class="r"><div class="line" style="width:80px"></div><div class="line" style="width:96px"></div><div class="line f1"></div><div class="line" style="width:80px"></div><div class="line" style="width:70px;background:#f2d9c6"></div></div>
+      <div class="r"><div class="line" style="width:80px"></div><div class="line" style="width:96px"></div><div class="line f1"></div><div class="line" style="width:80px"></div><div class="line" style="width:70px;background:#f2d9c6"></div></div>
+      <div class="r"><div class="line2" style="width:80px"></div><div class="line2" style="width:96px"></div><div class="line2 f1"></div><div class="line2" style="width:80px"></div><div class="line2" style="width:70px"></div></div>
+      <div class="bd p8 c f1" style="gap:5px"><span class="t">선택 신고 상세 — 원본 질의 / AI 응답 / 정정 코멘트</span><div class="line" style="width:88%"></div><div class="line2" style="width:70%"></div><div class="f1"></div><div class="r"><span class="chipd">지식 보완 필요</span><span class="chipd">응답 정상</span><span class="chipd">중복</span><span class="btn btnp">회신 및 종결</span></div></div>
+      <div class="bd p4 t">주간 신고 건수 · 답변 불가 비율 임계 초과 시 알림 발송</div>
+    </div>
+    <div class="c p8" style="width:330px">
+      <span class="t">Fine-RAG 검증 큐 — 성공 조치 이력</span>
+      <div class="b p6 c" style="gap:5px"><div class="r"><span class="chip">검증 대기</span><div class="line f1"></div></div><span class="t">정비 일지 → Vector DB 차분 등록 후보</span></div>
+      <div class="bd p6 c" style="gap:5px"><div class="r"><span class="chipd">검증 대기</span><div class="line2 f1"></div></div></div>
+      <div class="bd p6 c f1" style="gap:5px"><span class="t">선택 이력 상세 · 유사 사례 중복 검사 결과</span><div class="line2" style="width:80%"></div><div class="line2" style="width:62%"></div><div class="f1"></div><div class="r"><span class="btn">반려</span><span class="btn btnp">승인 · 인덱싱</span></div></div>
+      <div class="bd p4 t">승인 시 동종 알람 질의에 최우선 추천으로 반영</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="4e">
+<div class="dv-olabel"><a class="dv-oid" href="#4e">4e</a>답변 불가 후속 가이드 · BCP 수동 전환 절차서</div>
+<div class="dv-card">
+<div class="wf" style="width:520px;height:560px">
+  <div class="c p8 f1">
+    <div class="b p8 c" style="gap:6px;border-color:#c25a12">
+      <span class="t wr">답변 불가 — 후속 조치 안내</span>
+      <div class="bd p6 c" style="gap:4px"><span class="t">① 수동 점검 절차</span><div class="line" style="width:84%"></div><div class="line2" style="width:62%"></div></div>
+      <div class="bd p6 c" style="gap:4px"><span class="t">② 담당 부서 · 연락처</span><div class="line2" style="width:56%"></div></div>
+      <div class="r"><span class="chipd">매뉴얼 첨부하고 재질의</span><span class="chipd">지식 보완 요청</span></div>
+    </div>
+    <div class="b p8 c f1" style="gap:6px">
+      <span class="t">BCP 수동 전환 절차서 — 중계 서버 통신 두절 시</span>
+      <div class="b p6 c" style="gap:4px"><div class="r"><span class="chip">STEP 1</span><span class="sm h f1">상위 통신 차단 확인</span></div><div class="line" style="width:80%"></div></div>
+      <div class="b p6 c" style="gap:4px"><div class="r"><span class="chip">STEP 2</span><span class="sm h f1">현장 제어반 수동 전환</span></div><div class="line" style="width:72%"></div></div>
+      <div class="b p6 c" style="gap:4px"><div class="r"><span class="chip">STEP 3</span><span class="sm h f1">복구 후 롤백 및 이력 등록</span></div><div class="line2" style="width:64%"></div></div>
+      <div class="bd p6 c" style="gap:4px"><span class="t">비상 에스컬레이션 · 핫라인</span><div class="line2" style="width:58%"></div></div>
+      <div class="f1"></div>
+      <div class="bd p4 t">출처 자리 · 전환 이력은 감사 로그 기록</div>
+      <div class="r"><span class="chipd">체크리스트로 전환</span><span class="chipd">인쇄 / PDF</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">다음에 해볼 것: "<a class="dv-oid" href="#4a">4a</a> 사이트맵에 권한별 분기까지 그려줘" · "<a class="dv-oid" href="#4d">4d</a>를 태블릿에서도" · "전체를 화면설계서 문서로 정리"</p>
+</section>
+
+<section class="dv-turn" id="t3">
+<div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">미작성 화면 보강 — 운영 산출물 · 로그인/RBAC (2차 셸 규칙 그대로)</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="3a">
+<div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>운영 산출물 — PM 체크리스트 / 시운전 가이드 (채팅 요청 → 표 산출물)</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:620px">
+  <div class="r p8 bar" style="align-items:center"><span class="h">Factory Ops AI Agent</span><div class="f1"></div><span class="chipd">🔔 3</span><span class="chipd">Admin · 이OO</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:210px">
+      <div class="btn btnp ctr" style="justify-content:center">+ 새 대화</div>
+      <div class="t">프로젝트</div>
+      <div class="b p6 c" style="gap:4px"><span class="h sm">RGV 5호기 신규 도입</span><span class="t">사양서 3 · RAG 범위 활성</span></div>
+      <div class="bd p4 sm">AGV 3호기 전용</div>
+      <div class="t" style="margin-top:4px">최근 대화</div><div class="bd p4 t">RGV 5호기 PM 체크리스트</div><div class="bd p4 t">CV PLC 시운전 절차서</div>
+      <div class="f1"></div>
+      <div class="c" style="gap:4px;border-top:1.5px solid #2b2b2b;padding-top:6px"><div class="r"><span class="chipd f1 ctr">워크스페이스 관리</span></div><div class="r"><span class="chipd f1 ctr">알람·토폴로지</span><span class="chipd f1 ctr">통계</span></div><div class="r"><span class="chipd f1 ctr">감사로그</span><span class="chipd f1 ctr">설정</span></div></div>
+    </div>
+    <div class="c p12 f1">
+      <div class="r" style="justify-content:flex-end"><div class="b g p8 sm">신규 도입된 RGV 5호기 주간 PM 체크리스트랑 시운전 테스트 가이드 작성해줘</div></div>
+      <div class="c b p8 f1" style="gap:7px">
+        <div class="r t"><span>AI 응답 · AI Operations Advisor</span><span class="ac">신뢰도 0.83</span><div class="f1"></div><span>응답 유형 · 산출물 → 표</span></div>
+        <div class="r"><span class="chip">주간 PM 체크리스트</span><span class="chipd">시운전 테스트 케이스</span><span class="chipd">표준 데이터 Tag 매핑</span></div>
+        <div class="r"><div class="tdh" style="width:44px">No</div><div class="tdh" style="width:96px">부위</div><div class="tdh f1">점검 항목</div><div class="tdh" style="width:110px">점검 방법</div><div class="tdh" style="width:140px">판정 기준</div><div class="tdh" style="width:60px">주기</div></div>
+        <div class="r"><div class="line" style="width:44px"></div><div class="line" style="width:96px"></div><div class="line f1"></div><div class="line" style="width:110px"></div><div class="line" style="width:140px"></div><div class="line" style="width:60px"></div></div>
+        <div class="r"><div class="line" style="width:44px"></div><div class="line" style="width:96px"></div><div class="line f1"></div><div class="line" style="width:110px"></div><div class="line" style="width:140px"></div><div class="line" style="width:60px"></div></div>
+        <div class="r"><div class="line2" style="width:44px"></div><div class="line2" style="width:96px"></div><div class="line2 f1"></div><div class="line2" style="width:110px"></div><div class="line2" style="width:140px"></div><div class="line2" style="width:60px"></div></div>
+        <div class="r"><div class="line2" style="width:44px"></div><div class="line2" style="width:96px"></div><div class="line2 f1"></div><div class="line2" style="width:110px"></div><div class="line2" style="width:140px"></div><div class="line2" style="width:60px"></div></div>
+        <div class="r"><div class="line2" style="width:44px"></div><div class="line2" style="width:96px"></div><div class="line2 f1"></div><div class="line2" style="width:110px"></div><div class="line2" style="width:140px"></div><div class="line2" style="width:60px"></div></div>
+        <div class="bd p6 t">표준 데이터 결측 시 기본 안전 표준 템플릿 대체 적용</div>
+        <div class="f1"></div>
+        <div class="bd p4 t">출처 자리 — 표준 데이터 / 정비 매뉴얼 참조 페이지</div>
+        <div class="r"><span class="chipd">👍</span><span class="chipd">👎</span><span class="chipd">엑셀 내보내기</span><span class="chipd">마크다운 복사</span><span class="chipd btnp" style="color:#fff">정식 운영 문서로 등록</span></div>
+      </div>
+      <div class="r b p6" style="align-items:center"><span class="t f1">프롬프트 입력…</span><span class="chipd">🎤</span><span class="chipd">📎</span><span class="btn btnp">전송</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="3d">
+<div class="dv-olabel"><a class="dv-oid" href="#3d">3d</a>로그인 · 계정/권한(RBAC) 관리 — 자체 계정 체계</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:560px">
+  <div class="r f1" style="gap:0">
+    <div class="c p12 sb ctr" style="width:340px;flex-direction:column;justify-content:center;gap:10px">
+      <div class="c" style="gap:8px;width:100%">
+        <span class="h">Factory Operation AI Agent</span>
+        <span class="t">사내 SSO 미연동 · 자체 계정 관리</span>
+        <div class="c" style="gap:3px;margin-top:6px"><span class="t">사번 / ID</span><div class="b p8"></div></div>
+        <div class="c" style="gap:3px"><span class="t">비밀번호</span><div class="b p8"></div></div>
+        <div class="r" style="align-items:center"><span class="chipd">☐ 이 기기 기억</span><div class="f1"></div><span class="t">비밀번호 재설정</span></div>
+        <div class="b btnp p8 ctr" style="justify-content:center;font-weight:700">로그인</div>
+        <div class="bd p6 t wr">⚠ 로그인 5회 실패 시 계정 잠금 · 비밀번호 복잡도/재사용 제한 적용</div>
+        <div class="bd p6 t">2차 인증(OTP)은 고위험 제어 실행 시점에 요구</div>
+      </div>
+    </div>
+    <div class="c p8 f1">
+      <div class="r bar p4" style="align-items:center"><span class="chipd">◂ 대화로 돌아가기</span><span class="t">설정 ▸</span><span class="h sm f1">계정 · 권한(RBAC)</span><span class="chipd">Admin 전용</span><span class="chipd btnp" style="color:#fff">+ 계정 발급</span></div>
+      <div class="bd p4 t">진입 경로 — 사이드바 하단 [설정] ▸ 좌측 메뉴 [계정 · 권한(RBAC)] (<a href="#2k">2k</a> 설정 화면 참조) · Admin 계정만 메뉴 노출</div>
+      <div class="r p4"><span class="chipd">전체 42</span><span class="chipd">Viewer 28</span><span class="chipd">Operator 12</span><span class="chipd">Admin 2</span><span class="chipd">잠금 1</span><div class="f1"></div><span class="chipd">검색 ⌕</span></div>
+      <div class="r"><div class="tdh" style="width:88px">사번</div><div class="tdh f1">이름 / 부서</div><div class="tdh" style="width:80px">역할</div><div class="tdh" style="width:116px">허가 설비 범위</div><div class="tdh" style="width:84px">최근 접속</div><div class="tdh" style="width:74px">상태</div></div>
+      <div class="r"><div class="td" style="width:88px">AD-201</div><div class="td f1">이OO / 자동화AX솔루션팀</div><div class="td" style="width:80px">Admin</div><div class="td" style="width:116px">전체</div><div class="td" style="width:84px">08-18 14:40</div><div class="td ok" style="width:74px">활성</div></div>
+      <div class="r"><div class="td" style="width:88px">OP-1002</div><div class="td f1">김OO / 설비보전1팀</div><div class="td" style="width:80px">Operator</div><div class="td" style="width:116px">AGV · S/C · CV</div><div class="td" style="width:84px">08-18 14:31</div><div class="td ok" style="width:74px">활성</div></div>
+      <div class="r"><div class="td" style="width:88px">OP-1011</div><div class="td f1">정OO / 설비보전2팀</div><div class="td" style="width:80px">Operator</div><div class="td" style="width:116px">RGV · Lifter</div><div class="td" style="width:84px">08-17 18:47</div><div class="td ok" style="width:74px">활성</div></div>
+      <div class="r"><div class="td" style="width:88px">VW-3310</div><div class="td f1">최OO / 생산관제실</div><div class="td" style="width:80px">Viewer</div><div class="td" style="width:116px">조회 전용</div><div class="td" style="width:84px">08-18 09:51</div><div class="td ok" style="width:74px">활성</div></div>
+      <div class="r"><div class="td" style="width:88px">VW-3402</div><div class="td f1">한OO / 물류관리팀</div><div class="td" style="width:80px">Viewer</div><div class="td" style="width:116px">조회 전용</div><div class="td" style="width:84px">08-12 08:20</div><div class="td wr" style="width:74px;border-color:#c25a12;background:#fbf2ea">잠금</div></div>
+      <div class="r f1" style="gap:8px">
+        <div class="bd p8 c f1" style="gap:5px"><span class="t">선택 계정 — OP-1002 권한 상세</span>
+          <div class="r"><span class="chipd">상태 조회 ✓</span><span class="chipd">SOP 질의 ✓</span><span class="chipd">알람 리셋 ✓</span><span class="chipd">고위험 제어 ✗</span><span class="chipd">감사로그 열람 ✗</span></div>
+          <span class="t">세션 만료 — Operator 15분 무조작 시 재인증 (Viewer 60분)</span></div>
+        <div class="bd p8 c" style="gap:5px;width:250px"><span class="t">권한 변경 이력</span><div class="line2" style="width:82%"></div><div class="line2" style="width:64%"></div><span class="t">발급 · 권한변경 · 비활성화 모두 감사 로그 기록</span></div>
+      </div>
+      <div class="r" style="justify-content:flex-end"><span class="btn">잠금 해제</span><span class="btn">비활성화</span><span class="btn btnp">권한 저장</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">다음에 해볼 것: "<a class="dv-oid" href="#3a">3a</a>도 구조만 남기고 덜어줘" · "<a class="dv-oid" href="#3d">3d</a> 로그인 화면만 태블릿 버전으로" · "전체 화면 목록을 한 장 요약 맵으로"</p>
+</section>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">통일안 — 채팅 중심 셸(<a class="dv-oid" href="#1a">1a</a>) + 프로젝트 우선 사이드바(<a class="dv-oid" href="#1d">1d</a>) + 안전 모달(<a class="dv-oid" href="#1g">1g</a>) · 응답은 유형별 카드/표/타임라인 · 관리 화면은 풀스크린 전환</span></div>
+<div class="dv-opts">
+
+<div class="dv-grp">채팅 · 응답 유형 (SOP=카드 / 데이터=표 / 이력=타임라인)</div>
+
+<div class="dv-opt" id="2a">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>메인 채팅 — SOP 질의 → 카드형 응답</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:620px">
+  <div class="r p8 bar" style="align-items:center"><span class="h">Factory Ops AI Agent</span><div class="f1"></div><span class="chipd">🔔 3</span><span class="chipd">Operator · 김OO</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:210px">
+      <div class="btn btnp ctr" style="justify-content:center">+ 새 대화</div>
+      <div class="r" style="align-items:center"><span class="t f1">프로젝트</span><span class="chipd">+ 새 프로젝트</span></div>
+      <div class="b p6 c" style="gap:5px"><div class="r" style="align-items:center"><span class="h sm f1">AGV 3호기 전용</span><span class="chipd">⋯</span></div><span class="t">문서 12 · RAG 범위 활성</span><div class="r"><span class="chipd">#제로점재설정</span><span class="chipd">#위치센서</span></div><span class="chipd ctr">문서 · 카테고리 관리 ▸</span></div>
+      <div class="bd p4 sm">가류 라인 보전 지침</div>
+      <div class="bd p4 sm">자재 창고 입출고 규칙</div>
+      <div class="r" style="align-items:center;margin-top:4px"><span class="t f1">카테고리</span><span class="chipd">+</span></div>
+      <div class="bd p4 t">▸ 설비별 매뉴얼</div><div class="bd p4 t">▸ 안전 / BCP</div>
+      <div class="t" style="margin-top:4px">최근 대화</div>
+      <div class="bd p4 t">S/C 1호기 알람 리셋</div><div class="bd p4 t">버퍼 체류 45분 초과</div>
+      <div class="f1"></div>
+      <div class="c" style="gap:4px;border-top:1.5px solid #2b2b2b;padding-top:6px">
+        <div class="r"><span class="chipd f1 ctr">워크스페이스 관리</span></div>
+        <div class="r"><span class="chipd f1 ctr">알람·토폴로지</span><span class="chipd f1 ctr">통계</span></div>
+        <div class="r"><span class="chipd f1 ctr">감사로그</span><span class="chipd f1 ctr">설정</span></div>
+      </div>
+    </div>
+    <div class="c p12 f1">
+      <div class="r" style="justify-content:flex-end"><div class="b g p8 sm" style="max-width:430px">AGV 3호기 라인 이탈 알람 조치 SOP 알려줘</div></div>
+      <div class="c b p8 f1" style="gap:7px">
+        <div class="r t"><span>AI 응답</span><span class="ac">신뢰도 0.86</span><span>2.1초</span><div class="f1"></div><span>응답 유형 · SOP → 카드</span></div>
+        <div class="b p6 c" style="gap:5px"><div class="r"><span class="chip">STEP 1</span><span class="sm h f1">위치 센서 이물질 제거</span></div><div class="line" style="width:88%"></div><div class="line2" style="width:66%"></div><div class="bd p4 t">도면 p.45 ▸</div></div>
+        <div class="b p6 c" style="gap:5px"><div class="r"><span class="chip">STEP 2</span><span class="sm h f1">제로점 재설정</span></div><div class="line" style="width:80%"></div><div class="line2" style="width:58%"></div></div>
+        <div class="bd p6 c" style="gap:4px"><span class="t wr">⚠ 안전 유의사항 — LOTO / 전원 차단</span><div class="line2" style="width:70%"></div></div>
+        <div class="f1"></div>
+        <div class="bd p4 t">출처 [1] AGV_정비매뉴얼_v3.2.pdf p.45 · [2] SOP-AGV-104</div>
+        <div class="r"><span class="chipd">👍</span><span class="chipd">👎</span><span class="chipd">정비 일지 작성</span><span class="chipd">알람 리셋 요청</span></div>
+      </div>
+      <div class="r b p6" style="align-items:center"><span class="t f1">프롬프트 입력…</span><span class="chipd">🎤</span><span class="chipd">📎</span><span class="btn btnp">전송</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2b">
+<div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>재고·설비 질의 → 표형 응답 / 인자 누락 시 선택 칩</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:620px">
+  <div class="r p8 bar" style="align-items:center"><span class="h">Factory Ops AI Agent</span><div class="f1"></div><span class="chipd">🔔 3</span><span class="chipd">Operator · 김OO</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:210px">
+      <div class="btn btnp ctr" style="justify-content:center">+ 새 대화</div>
+      <div class="t">프로젝트</div>
+      <div class="bd p4 sm">AGV 3호기 전용</div><div class="b p6 c" style="gap:4px"><span class="h sm">자재 창고 입출고 규칙</span><span class="t">문서 4 · RAG 범위 활성</span></div>
+      <div class="t" style="margin-top:4px">최근 대화</div><div class="bd p4 t">버퍼 체류 45분 초과</div><div class="bd p4 t">FIFO 위반 자재</div>
+      <div class="f1"></div>
+      <div class="c" style="gap:4px;border-top:1.5px solid #2b2b2b;padding-top:6px"><div class="r"><span class="chipd f1 ctr">워크스페이스 관리</span></div><div class="r"><span class="chipd f1 ctr">알람·토폴로지</span><span class="chipd f1 ctr">통계</span></div><div class="r"><span class="chipd f1 ctr">감사로그</span><span class="chipd f1 ctr">설정</span></div></div>
+    </div>
+    <div class="c p12 f1">
+      <div class="r" style="justify-content:flex-end"><div class="b g p8 sm">체류 시간 초과 재고 보여줘</div></div>
+      <div class="b p6 c" style="gap:6px"><span class="t">필수 인자 누락 — 어느 버퍼 구역을 조회할까요?</span><div class="r"><span class="chip">BUF-01</span><span class="chip">BUF-02</span><span class="chip">전체</span><span class="chipd">기준 45분 ▾</span></div></div>
+      <div class="c b p8 f1" style="gap:6px">
+        <div class="r t"><span>AI 응답 · 4건</span><span>중계 서버 GET /inv/buffer</span><div class="f1"></div><span>응답 유형 · 데이터 → 표</span></div>
+        <div class="r"><span class="chipd">체류 ▾</span><span class="chipd">구역 BUF-02</span><span class="chipd">상태 지연</span><span class="chipd">기준 45분</span><div class="f1"></div><span class="chipd">엑셀</span></div>
+        <div class="r"><div class="tdh" style="width:88px">Pallet ID</div><div class="tdh f1">품목 (Item)</div><div class="tdh" style="width:74px">체류(분)</div><div class="tdh" style="width:114px">위치</div><div class="tdh" style="width:96px">반입 시각</div><div class="tdh" style="width:96px">잔여 유효</div><div class="tdh" style="width:66px">상태</div></div>
+        <div class="r"><div class="td" style="width:88px">P-902</div><div class="td f1">WIP-A 가공 반제품</div><div class="td" style="width:74px">52</div><div class="td" style="width:114px">BUF-02 / R-14</div><div class="td" style="width:96px">13:40</div><div class="td" style="width:96px">-7분 초과</div><div class="td wr" style="width:66px;border-color:#c25a12;background:#fbf2ea">지연</div></div>
+        <div class="r"><div class="td" style="width:88px">P-915</div><div class="td f1">WIP-A 가공 반제품</div><div class="td" style="width:74px">49</div><div class="td" style="width:114px">BUF-02 / R-09</div><div class="td" style="width:96px">13:43</div><div class="td" style="width:96px">-4분 초과</div><div class="td wr" style="width:66px;border-color:#c25a12;background:#fbf2ea">지연</div></div>
+        <div class="r"><div class="td" style="width:88px">P-877</div><div class="td f1">WIP-C 조립 대기</div><div class="td" style="width:74px">47</div><div class="td" style="width:114px">BUF-01 / R-03</div><div class="td" style="width:96px">13:45</div><div class="td" style="width:96px">-2분 초과</div><div class="td wr" style="width:66px;border-color:#c25a12;background:#fbf2ea">지연</div></div>
+        <div class="r"><div class="td" style="width:88px">P-931</div><div class="td f1">WIP-B 검사 대기</div><div class="td" style="width:74px">41</div><div class="td" style="width:114px">BUF-01 / R-21</div><div class="td" style="width:96px">13:51</div><div class="td" style="width:96px">4분 남음</div><div class="td" style="width:66px;border-color:#c9a227;background:#fbf7e8">주의</div></div>
+        <div class="r"><div class="td" style="width:88px">P-940</div><div class="td f1">Empty Pallet</div><div class="td" style="width:74px">18</div><div class="td" style="width:114px">BUF-02 / R-27</div><div class="td" style="width:96px">14:14</div><div class="td" style="width:96px">27분 남음</div><div class="td ok" style="width:66px;border-color:#3d7a4a;background:#eef5f0">정상</div></div>
+        <div class="f1"></div>
+        <div class="bd p4 t">지연 3 · 주의 1 · 정상 1 · 조회 14:32:10 · 페이지 1 of 1 (Page Size 50)</div>
+        <div class="r"><span class="chipd">👍</span><span class="chipd">👎</span><span class="chipd">이송 알림 발송</span></div>
+      </div>
+      <div class="r b p6" style="align-items:center"><span class="t f1">프롬프트 입력…</span><span class="chipd">🎤</span><span class="chipd">📎</span><span class="btn btnp">전송</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2c">
+<div class="dv-olabel"><a class="dv-oid" href="#2c">2c</a>이력 질의 → 타임라인 응답 / 근거 부족 시 답변 불가</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:620px">
+  <div class="r p8 bar" style="align-items:center"><span class="h">Factory Ops AI Agent</span><div class="f1"></div><span class="chipd">🔔 3</span><span class="chipd">Operator · 김OO</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:210px">
+      <div class="btn btnp ctr" style="justify-content:center">+ 새 대화</div>
+      <div class="t">프로젝트</div><div class="b p6 c" style="gap:4px"><span class="h sm">AGV 3호기 전용</span><span class="t">RAG 범위 활성</span></div><div class="bd p4 sm">가류 라인 보전 지침</div>
+      <div class="t" style="margin-top:4px">최근 대화</div><div class="bd p4 t">S/C 1호기 알람 이력</div>
+      <div class="f1"></div>
+      <div class="c" style="gap:4px;border-top:1.5px solid #2b2b2b;padding-top:6px"><div class="r"><span class="chipd f1 ctr">워크스페이스 관리</span></div><div class="r"><span class="chipd f1 ctr">알람·토폴로지</span><span class="chipd f1 ctr">통계</span></div><div class="r"><span class="chipd f1 ctr">감사로그</span><span class="chipd f1 ctr">설정</span></div></div>
+    </div>
+    <div class="c p12 f1">
+      <div class="r" style="justify-content:flex-end"><div class="b g p8 sm">S/C 1호기 최근 24시간 알람 이력 정리해줘</div></div>
+      <div class="c b p8" style="gap:8px">
+        <div class="r t"><span>AI 응답</span><div class="f1"></div><span>응답 유형 · 이력 → 타임라인</span></div>
+        <div class="r" style="gap:8px"><span class="t" style="width:44px">09:12</span><div class="c f1" style="gap:3px"><span class="sm h">알람 발생 E-203</span><div class="line" style="width:66%"></div></div></div>
+        <div class="r" style="gap:8px"><span class="t" style="width:44px">09:20</span><div class="c f1" style="gap:3px"><span class="sm">SOP 조회 · 3단계 안내</span><div class="line2" style="width:52%"></div></div></div>
+        <div class="r" style="gap:8px"><span class="t" style="width:44px">09:48</span><div class="c f1" style="gap:3px"><span class="sm">현장 조치 완료 기록</span><div class="line2" style="width:44%"></div></div></div>
+        <div class="r" style="gap:8px"><span class="t" style="width:44px">09:51</span><div class="c f1" style="gap:3px"><span class="sm ok">원격 리셋 성공 · TX-99021</span><div class="line2" style="width:58%"></div></div></div>
+        <div class="r"><span class="chipd">👍</span><span class="chipd">👎</span><span class="chipd">토폴로지 뷰에서 열기</span></div>
+      </div>
+      <div class="r" style="justify-content:flex-end"><div class="b g p8 sm">신형 리프터 LT-9 이상음 원인 알려줘</div></div>
+      <div class="b p8 c f1" style="gap:6px;border-color:#c25a12">
+        <span class="t wr">답변 불가 · 최고 유사도 0.61 &lt; 기준 0.70</span>
+        <span class="sm">관련 보전 SOP 근거를 찾을 수 없습니다. 임의로 답변하지 않습니다.</span>
+        <div class="bd p6 c" style="gap:4px"><span class="t">후속 조치 안내</span><div class="line2" style="width:70%"></div><div class="line2" style="width:56%"></div></div>
+        <div class="r"><span class="chipd">매뉴얼 첨부하고 다시 묻기</span><span class="chipd">담당 부서 문의</span><span class="chipd">부정확 신고</span></div>
+        <div class="f1"></div>
+      </div>
+      <div class="r b p6" style="align-items:center"><span class="t f1">프롬프트 입력…</span><span class="chipd">🎤</span><span class="chipd">📎</span><span class="btn btnp">전송</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-grp">안전 원격 제어 — 모달 흐름</div>
+
+<div class="dv-opt" id="2d">
+<div class="dv-olabel"><a class="dv-oid" href="#2d">2d</a>제어 요청 → 안전 체크리스트 모달 (전 항목 체크 전 실행 비활성)</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:620px;position:relative">
+  <div class="r p8 bar" style="align-items:center"><span class="h">Factory Ops AI Agent</span><div class="f1"></div><span class="chipd">🔔 3</span><span class="chipd">Operator · 김OO</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb gg" style="width:210px"><div class="line2"></div><div class="line2" style="width:70%"></div><div class="line2" style="width:84%"></div><div class="f1"></div><div class="line2" style="width:60%"></div></div>
+    <div class="c p12 f1 gg"><div class="r" style="justify-content:flex-end"><div class="b g p8 sm">수동 조치 완료, AGV 3호기 알람 원격 리셋해줘</div></div><div class="bd p8 c f1" style="gap:6px"><span class="t">권한 검증 통과 (Operator) · 안전 확인 대기</span><div class="line2" style="width:60%"></div></div></div>
+  </div>
+  <div class="c b p12" style="gap:8px;position:absolute;left:300px;right:120px;top:110px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.22)">
+    <div class="r" style="align-items:center"><span class="h f1">현장 안전 확인 체크리스트</span><span class="chipd">✕</span></div>
+    <div class="bd p6 t">대상 AGV-03 · 알람 E-104 · 명령 원격 리셋 · 위험도 일반</div>
+    <div class="r b p6" style="align-items:center"><span class="chipd">☑</span><span class="sm f1">작업자 접근 차단 확인</span></div>
+    <div class="r b p6" style="align-items:center"><span class="chipd">☑</span><span class="sm f1">현장 물리 점검 완료</span></div>
+    <div class="r b p6" style="align-items:center"><span class="chipd">☐</span><span class="sm f1">비상정지 스위치 정상</span></div>
+    <div class="r b p6" style="align-items:center"><span class="t f1">확인자 서명 입력란</span><span class="chipd">서명</span></div>
+    <div class="bd p6 t wr">⚠ 1개라도 미체크 또는 취소 시 제어 파이프라인 즉시 종료 · 체크 결과는 감사 로그에 불변 기록</div>
+    <div class="r" style="justify-content:flex-end"><span class="btn">취소</span><span class="btn btnd">원격 제어 실행 (2/3)</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2e">
+<div class="dv-olabel"><a class="dv-oid" href="#2e">2e</a>실행 결과 · 고위험 승인 대기 · Fail-Safe 3종 상태</div>
+<div class="dv-card">
+<div class="wf" style="width:480px;height:620px">
+  <div class="r p8 bar"><span class="h sm f1">제어 실행 상태 — 모달 후속</span></div>
+  <div class="c p8 f1">
+    <div class="b p8 c" style="gap:6px"><span class="t">① 실행 중</span><div class="line" style="width:55%;background:#2a78d6"></div><span class="sm">중계 서버 응답 대기 · 1.5초 목표</span></div>
+    <div class="b p8 c" style="gap:6px;border-color:#3d7a4a"><span class="t ok">② 성공</span><span class="sm h">원격 리셋 완료 · TX-99021</span><div class="bd p4 t">14:31:02 · 응답 1.2초 · 감사 로그 기록됨</div><div class="r"><span class="chipd">정비 일지 작성</span><span class="chipd">설비 상태 확인</span></div></div>
+    <div class="b p8 c" style="gap:6px"><span class="t">③ 고위험 — 관리자 2차 승인 대기</span><div class="line" style="width:40%"></div><span class="sm">승인자 이OO · 남은 시간 04:12</span><div class="bd p4 t">초과 시 대체 승인자 자동 전달 · 반려 시 대화창에 사유 표출</div></div>
+    <div class="b p8 c" style="gap:6px;border-color:#c25a12"><span class="t wr">④ Fail-Safe 차단</span><span class="sm wr h">3초 초과 — 제어가 차단되었습니다</span><span class="sm">현장 수동 제어반에서 점검을 진행해 주세요.</span><div class="r"><span class="chipd">BCP 수동 전환 절차</span><span class="chipd">비상 핫라인</span></div><div class="bd p4 t">오류 감사 로그 기록됨</div></div>
+    <div class="b p8 c" style="gap:6px;border-color:#c25a12"><span class="t wr">⑤ 권한 미달 (Viewer)</span><span class="sm">원격 제어 권한이 없습니다. 상태 조회와 SOP 질의만 가능합니다.</span><div class="r"><span class="chipd">권한 요청</span></div></div>
+    <div class="f1"></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2f">
+<div class="dv-olabel"><a class="dv-oid" href="#2f">2f</a>정비 일지 자동 생성 모달 · 멀티모달 업로드 모달</div>
+<div class="dv-card">
+<div class="wf" style="width:480px;height:620px">
+  <div class="c p8 f1">
+    <div class="b c" style="gap:0">
+      <div class="r p6 bar"><span class="h sm f1">정비 일지 초안 · 자동 생성됨</span><span class="chipd">✕</span></div>
+      <div class="c p8" style="gap:7px">
+        <div class="r"><div class="c f1" style="gap:3px"><span class="t">설비</span><div class="b p4 sm">AGV 3호기</div></div><div class="c f1" style="gap:3px"><span class="t">알람 코드</span><div class="b p4 sm">AGV-ERR-104</div></div></div>
+        <div class="r"><div class="c f1" style="gap:3px"><span class="t">발생</span><div class="b p4 sm">08-18 14:02</div></div><div class="c f1" style="gap:3px"><span class="t">복구</span><div class="b p4 sm">14:31</div></div></div>
+        <div class="c" style="gap:3px"><span class="t">원인 / 조치 내역 (필수)</span><div class="b p6 c" style="gap:5px"><div class="line" style="width:90%"></div><div class="line" style="width:74%"></div><div class="line2" style="width:52%"></div><span class="t">직접 수정 가능</span></div></div>
+        <div class="bd p4 t">첨부 · 원격 리셋 TX-99021 / 안전 체크 로그 자동 연결</div>
+        <div class="r" style="align-items:center"><span class="chipd">☐ Fine-RAG 등록 요청</span><div class="f1"></div><span class="btn">취소</span><span class="btn btnp">저장</span></div>
+      </div>
+    </div>
+    <div class="b c f1" style="gap:0">
+      <div class="r p6 bar"><span class="h sm f1">파일 첨부</span><span class="chipd">✕</span></div>
+      <div class="c p8 f1" style="gap:7px">
+        <div class="bd p12 c ctr f1" style="gap:5px"><span class="sm">파일을 여기에 끌어다 놓기</span><span class="t">PDF·DOCX·PPTX·XLSX·TXT·MD·PNG·JPG · 50MB 이하</span><span class="btn">파일 선택</span></div>
+        <div class="b p6 c" style="gap:4px"><div class="r"><span class="sm f1">RGV_정비매뉴얼.pdf</span><span class="t">45MB</span><span class="chipd">✕</span></div><div class="line" style="width:72%;background:#2a78d6"></div><span class="t">파싱 72% · 텍스트/도표 청킹</span></div>
+        <div class="bd p4 t wr">⚠ archive.zip 62MB — 미지원 포맷 / 용량 초과로 차단</div>
+        <div class="r"><span class="chipd">☐ 프로젝트에 영구 저장</span><div class="f1"></div><span class="btn btnp">질의 계속</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-grp">사이드바 하단 전환 — 풀스크린 관리 뷰</div>
+
+<div class="dv-opt" id="2g">
+<div class="dv-olabel"><a class="dv-oid" href="#2g">2g</a>풀스크린 · 알람 이력 + 토폴로지</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:560px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">◂ 대화로 돌아가기</span><span class="h sm">알람·토폴로지</span><span class="chipd">통계</span><span class="chipd">감사로그</span><span class="chipd">워크스페이스</span><span class="chipd">설정</span><div class="f1"></div><span class="chipd">🔔 3</span></div>
+  <div class="r p8"><span class="chipd">최근 24시간 ▾</span><span class="chipd">공장/라인</span><span class="chipd">설비·호기</span><span class="chipd">알람코드</span><div class="f1"></div><span class="chipd">엑셀</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb f1">
+      <span class="t">토폴로지 뷰 — 공장 · 라인 · 설비 · 유닛 (알람 집중 구역 강조)</span>
+      <div class="b p12 c f1" style="gap:0;align-items:center">
+        <div class="node h">1공장</div>
+        <div class="cv"></div><div class="ch" style="width:66.6%"></div>
+        <div class="r" style="width:100%;gap:0">
+          <div class="c f1" style="gap:0;align-items:center">
+            <div class="cv"></div><div class="node">이송 라인 A</div><div class="cv"></div><div class="ch" style="width:50%"></div>
+            <div class="r" style="width:100%;gap:0">
+              <div class="c f1" style="gap:0;align-items:center"><div class="cv"></div><div class="node nodew">AGV-03 ●</div></div>
+              <div class="c f1" style="gap:0;align-items:center"><div class="cv"></div><div class="node">AGV-04</div></div>
+            </div>
+          </div>
+          <div class="c f1" style="gap:0;align-items:center">
+            <div class="cv"></div><div class="node">AS/RS</div><div class="cv"></div><div class="ch" style="width:50%"></div>
+            <div class="r" style="width:100%;gap:0">
+              <div class="c f1" style="gap:0;align-items:center"><div class="cv"></div><div class="node nodew">S/C-01 ●●</div></div>
+              <div class="c f1" style="gap:0;align-items:center"><div class="cv"></div><div class="node">S/C-02</div></div>
+            </div>
+          </div>
+          <div class="c f1" style="gap:0;align-items:center">
+            <div class="cv"></div><div class="node">컨베이어</div><div class="cv"></div><div class="ch" style="width:50%"></div>
+            <div class="r" style="width:100%;gap:0">
+              <div class="c f1" style="gap:0;align-items:center"><div class="cv"></div><div class="node">CV-11</div></div>
+              <div class="c f1" style="gap:0;align-items:center"><div class="cv"></div><div class="node">LT-03</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="r" style="width:100%;align-items:center;gap:6px;margin-top:14px"><div class="ch" style="flex:1;border-top:1.5px dashed #c25a12;background:none;height:0"></div><span class="t wr">인터록 연관 AGV-03 ↔ S/C-01</span><div class="ch" style="flex:1;border-top:1.5px dashed #c25a12;background:none;height:0"></div></div>
+        <div class="f1"></div>
+        <span class="t">실선 = 계층 구조 · 점선 = 인터록 연관 · ● = 알람 건수 · 노드 클릭 시 우측 상세</span>
+      </div>
+    </div>
+    <div class="c p8" style="width:330px">
+      <span class="t">알람 목록 · 12건</span>
+      <div class="r"><div class="bd p4 t" style="width:56px">시각</div><div class="bd p4 t f1">설비</div><div class="bd p4 t" style="width:70px">코드</div><div class="bd p4 t" style="width:56px">상태</div></div>
+      <div class="r"><div class="line" style="width:56px"></div><div class="line f1"></div><div class="line" style="width:70px"></div><div class="line" style="width:56px;background:#f2d9c6"></div></div>
+      <div class="r"><div class="line" style="width:56px"></div><div class="line f1"></div><div class="line" style="width:70px"></div><div class="line" style="width:56px;background:#d9e8dc"></div></div>
+      <div class="r"><div class="line2" style="width:56px"></div><div class="line2 f1"></div><div class="line2" style="width:70px"></div><div class="line2" style="width:56px"></div></div>
+      <div class="r"><div class="line2" style="width:56px"></div><div class="line2 f1"></div><div class="line2" style="width:70px"></div><div class="line2" style="width:56px"></div></div>
+      <div class="bd p6 c f1" style="gap:5px"><span class="t">선택 알람 상세 · S/C-01 / E-203</span><div class="line2" style="width:82%"></div><div class="line2" style="width:64%"></div><div class="f1"></div><div class="r"><span class="chipd">SOP 조회</span><span class="chipd">리셋 요청</span><span class="chipd">대화로 보내기</span></div></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2h">
+<div class="dv-olabel"><a class="dv-oid" href="#2h">2h</a>풀스크린 · 통계 KPI (MTTR / OEE / FAQ)</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:560px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">◂ 대화로 돌아가기</span><span class="chipd">알람·토폴로지</span><span class="h sm">통계</span><span class="chipd">감사로그</span><span class="chipd">워크스페이스</span><span class="chipd">설정</span><div class="f1"></div><span class="chipd">🔔 3</span></div>
+  <div class="r p8"><span class="chipd">주간</span><span class="chipd">월간</span><span class="chipd">설비군 전체 ▾</span><div class="f1"></div><span class="chipd">리포트 자동 생성</span></div>
+  <div class="c p8 f1">
+    <div class="r">
+      <div class="b p8 f1 c" style="gap:4px"><span class="t">MTTR</span><span class="h" style="font-size:19px">42<span class="sm"> 분</span></span><span class="t ok">▼ 8분 (전주 50분)</span></div>
+      <div class="b p8 f1 c" style="gap:4px"><span class="t">MTBF</span><span class="h" style="font-size:19px">216<span class="sm"> 시간</span></span><span class="t ok">▲ 12시간</span></div>
+      <div class="b p8 f1 c" style="gap:4px"><span class="t">시간가동률 OEE</span><span class="h" style="font-size:19px">94.2<span class="sm"> %</span></span><span class="t">목표 95.0%</span></div>
+      <div class="b p8 f1 c" style="gap:4px"><span class="t">제어 성공률</span><span class="h" style="font-size:19px">98.1<span class="sm"> %</span></span><span class="t">실행 214건 / 실패 4건</span></div>
+      <div class="b p8 f1 c" style="gap:4px"><span class="t wr">답변 불가 비율</span><span class="h wr" style="font-size:19px">11.4<span class="sm"> %</span></span><span class="t wr">임계 20% 미만</span></div>
+    </div>
+    <div class="r f1">
+      <div class="b p8 f1 c" style="gap:6px">
+        <div class="r"><span class="t f1">비가동 원인 Top 5 (주간, 분)</span><span class="t">총 1,240분</span></div>
+        <div class="r f1" style="gap:6px">
+          <div class="c t" style="justify-content:space-between;text-align:right;width:34px;padding-bottom:16px"><span>420</span><span>280</span><span>140</span><span>0</span></div>
+          <div class="c f1" style="gap:0">
+            <div class="r f1" style="align-items:flex-end;gap:12px;border-left:1.5px solid #2b2b2b;border-bottom:1.5px solid #2b2b2b;padding:0 8px">
+              <div class="g f1 ctr" style="height:96%;align-items:flex-start;padding-top:2px"><span class="t">402</span></div>
+              <div class="g f1 ctr" style="height:70%;align-items:flex-start;padding-top:2px"><span class="t">294</span></div>
+              <div class="g f1 ctr" style="height:53%;align-items:flex-start;padding-top:2px"><span class="t">221</span></div>
+              <div class="g f1 ctr" style="height:41%;align-items:flex-start;padding-top:2px"><span class="t">173</span></div>
+              <div class="g f1 ctr" style="height:36%;align-items:flex-start;padding-top:2px"><span class="t">150</span></div>
+            </div>
+            <div class="r t" style="gap:12px;padding:4px 8px 0"><span class="f1 ctr">센서<br>이물질</span><span class="f1 ctr">자재<br>대기</span><span class="f1 ctr">서보<br>이상</span><span class="f1 ctr">수동<br>정지</span><span class="f1 ctr">통신<br>두절</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="b p8 f1 c" style="gap:5px">
+        <span class="t">FAQ TOP 5 · 카테고리별 질의 비율 (주간 질의 1,082건)</span>
+        <div class="r" style="align-items:center"><span class="td f1" style="border:none">1. AGV 라인 이탈 알람 조치</span><span class="t">142</span></div>
+        <div class="line" style="width:100%"></div>
+        <div class="r" style="align-items:center"><span class="td f1" style="border:none">2. 버퍼 체류 시간 초과 목록</span><span class="t">118</span></div>
+        <div class="line" style="width:83%"></div>
+        <div class="r" style="align-items:center"><span class="td f1" style="border:none">3. S/C 모터 과열 원인</span><span class="t">96</span></div>
+        <div class="line2" style="width:68%"></div>
+        <div class="r" style="align-items:center"><span class="td f1" style="border:none">4. RGV E-203 조치법</span><span class="t">74</span></div>
+        <div class="line2" style="width:52%"></div>
+        <div class="r" style="align-items:center"><span class="td f1" style="border:none">5. 자재 유효기간 임박 조회</span><span class="t">61</span></div>
+        <div class="line2" style="width:43%"></div>
+        <div class="f1"></div>
+        <div class="r t"><span>SOP 46%</span><span>재고 24%</span><span>제어 18%</span><span>산출물 12%</span></div>
+        <div class="bd p4 t wr">주간 부정확 신고 7건 / 임계 10건</div>
+      </div>
+      <div class="b p8 c" style="gap:5px;width:262px"><span class="t">설비별 신뢰성 평가표</span>
+        <div class="r"><div class="tdh f1">설비</div><div class="tdh" style="width:52px">MTTR</div><div class="tdh" style="width:52px">고장</div></div>
+        <div class="r"><div class="td f1">S/C 1호기</div><div class="td wr" style="width:52px">68분</div><div class="td" style="width:52px">9건</div></div>
+        <div class="r"><div class="td f1">AGV 3호기</div><div class="td" style="width:52px">44분</div><div class="td" style="width:52px">6건</div></div>
+        <div class="r"><div class="td f1">RGV 2호기</div><div class="td" style="width:52px">38분</div><div class="td" style="width:52px">4건</div></div>
+        <div class="r"><div class="td f1">CV-11</div><div class="td" style="width:52px">22분</div><div class="td" style="width:52px">3건</div></div>
+        <div class="r"><div class="td f1">LT-03</div><div class="td ok" style="width:52px">15분</div><div class="td" style="width:52px">1건</div></div>
+        <div class="f1"></div>
+        <span class="chipd ctr">전체 12개 설비 보기 ▸</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2i">
+<div class="dv-olabel"><a class="dv-oid" href="#2i">2i</a>풀스크린 · 감사 로그 (Read-Only)</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:560px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">◂ 대화로 돌아가기</span><span class="chipd">알람·토폴로지</span><span class="chipd">통계</span><span class="h sm">감사로그</span><span class="chipd">워크스페이스</span><span class="chipd">설정</span><div class="f1"></div><span class="chipd">🔔 3</span></div>
+  <div class="r p8"><span class="chipd">2026-08-01 ~ 08-18</span><span class="chipd">전체</span><span class="chipd">성공</span><span class="chipd wr">실패</span><span class="chipd">Fail-Safe</span><span class="chipd">요청자 ▾</span><div class="f1"></div><span class="t">위변조 검증 HMAC ✓</span><span class="chipd">엑셀 다운로드</span></div>
+  <div class="c p8 f1" style="gap:5px">
+    <div class="r"><div class="tdh" style="width:118px">일시</div><div class="tdh" style="width:104px">요청자</div><div class="tdh" style="width:96px">승인자</div><div class="tdh" style="width:88px">설비</div><div class="tdh f1">명령</div><div class="tdh" style="width:70px">안전확인</div><div class="tdh" style="width:78px">결과</div><div class="tdh" style="width:60px">응답</div><div class="tdh" style="width:88px">TX ID</div></div>
+    <div class="r"><div class="td" style="width:118px">08-18 14:31:02</div><div class="td" style="width:104px">OP-1002 김OO</div><div class="td" style="width:96px">—</div><div class="td" style="width:88px">AGV-03</div><div class="td f1">POST /relay/reset · E-104</div><div class="td ok" style="width:70px">3/3</div><div class="td ok" style="width:78px;border-color:#3d7a4a;background:#eef5f0">SUCCESS</div><div class="td" style="width:60px">1.2s</div><div class="td" style="width:88px">TX-99021</div></div>
+    <div class="r"><div class="td" style="width:118px">08-18 13:58:40</div><div class="td" style="width:104px">OP-1002 김OO</div><div class="td" style="width:96px">AD-201 이OO</div><div class="td" style="width:88px">S/C-01</div><div class="td f1">POST /relay/reset · E-203</div><div class="td ok" style="width:70px">3/3</div><div class="td wr" style="width:78px;border-color:#c25a12;background:#fbf2ea">FAIL</div><div class="td wr" style="width:60px">3.0s</div><div class="td" style="width:88px">TX-98974</div></div>
+    <div class="r"><div class="td" style="width:118px">08-18 11:22:15</div><div class="td" style="width:104px">OP-1007 박OO</div><div class="td" style="width:96px">—</div><div class="td" style="width:88px">CV-11</div><div class="td f1">POST /relay/notification · 만차</div><div class="td ok" style="width:70px">3/3</div><div class="td ok" style="width:78px;border-color:#3d7a4a;background:#eef5f0">SUCCESS</div><div class="td" style="width:60px">0.9s</div><div class="td" style="width:88px">TX-98812</div></div>
+    <div class="r"><div class="td" style="width:118px">08-18 09:51:33</div><div class="td" style="width:104px">VW-3310 최OO</div><div class="td" style="width:96px">—</div><div class="td" style="width:88px">RGV-02</div><div class="td f1">POST /relay/reset · 권한 미달 차단</div><div class="td" style="width:70px">—</div><div class="td wr" style="width:78px;border-color:#c25a12;background:#fbf2ea">DENIED</div><div class="td" style="width:60px">—</div><div class="td" style="width:88px">TX-98750</div></div>
+    <div class="r"><div class="td" style="width:118px">08-17 22:04:08</div><div class="td" style="width:104px">OP-1002 김OO</div><div class="td" style="width:96px">AD-201 이OO</div><div class="td" style="width:88px">S/C-02</div><div class="td f1">POST /relay/reset · E-118</div><div class="td ok" style="width:70px">3/3</div><div class="td ok" style="width:78px;border-color:#3d7a4a;background:#eef5f0">SUCCESS</div><div class="td" style="width:60px">1.4s</div><div class="td" style="width:88px">TX-98603</div></div>
+    <div class="r"><div class="td" style="width:118px">08-17 18:47:52</div><div class="td" style="width:104px">OP-1011 정OO</div><div class="td" style="width:96px">타임아웃</div><div class="td" style="width:88px">AGV-07</div><div class="td f1">POST /relay/reset · 승인 반려</div><div class="td ok" style="width:70px">3/3</div><div class="td wr" style="width:78px;border-color:#c25a12;background:#fbf2ea">REJECT</div><div class="td" style="width:60px">—</div><div class="td" style="width:88px">TX-98590</div></div>
+    <div class="r f1" style="gap:8px">
+      <div class="bd p8 c f1" style="gap:5px"><span class="t">선택 행 상세 — TX-98974 중계 서버 응답 원문</span><div class="td" style="border-style:solid;border-color:#e0ddd6;white-space:normal">{ "status": 504, "result": "TIMEOUT", "elapsed_ms": 3004, "fail_safe": true }</div><span class="t wr">3초 초과 → Fail-Safe 차단 (SR-007) · 현장 수동 점검 안내 발송됨</span></div>
+      <div class="bd p8 c" style="gap:5px;width:280px"><span class="t">안전 체크 결과 / 서명</span><span class="sm">작업자 접근 차단 ✓ · 물리 점검 ✓ · 비상정지 ✓</span><div class="td" style="border-style:solid;border-color:#e0ddd6">13:57:12 · 서명 OP-1002 · HMAC ✓</div></div>
+    </div>
+    <div class="r"><span class="t f1">수정·삭제 버튼 없음 · 최소 3년 보관</span><span class="chipd">◂ 1 2 3 ▸</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2j">
+<div class="dv-olabel"><a class="dv-oid" href="#2j">2j</a>풀스크린 · 프로젝트 워크스페이스 / 카테고리·태그</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:560px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">◂ 대화로 돌아가기</span><span class="chipd">알람·토폴로지</span><span class="chipd">통계</span><span class="chipd">감사로그</span><span class="h sm">워크스페이스</span><span class="chipd">설정</span><div class="f1"></div><span class="chipd">🔔 3</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:230px">
+      <div class="r"><span class="t f1">프로젝트</span><span class="chipd">+</span></div>
+      <div class="b p6 c" style="gap:4px"><span class="h sm">AGV 3호기 전용 관리 공간</span><span class="t">문서 12 · 218MB</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="sm">가류 라인 보전 지침</span><span class="t">문서 7</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="sm">자재 창고 입출고 규칙</span><span class="t">문서 4</span></div>
+      <span class="t" style="margin-top:6px">공유 범위</span><div class="r"><span class="chipd">개인</span><span class="chipd">팀</span></div>
+      <div class="f1"></div><div class="bd p4 t ctr">프로젝트 삭제 · 권한</div>
+    </div>
+    <div class="c p8 sb" style="width:230px">
+      <div class="r"><span class="t f1">카테고리 트리</span><span class="chipd">+</span></div>
+      <div class="b p4 sm">▾ AGV 3호기 전용 매뉴얼</div>
+      <div class="bd p4 t" style="margin-left:10px">정비 도면</div><div class="bd p4 t" style="margin-left:10px">SOP</div><div class="bd p4 t" style="margin-left:10px">부품 리스트</div>
+      <div class="bd p4 sm">▸ 공정 라인 보전 지침</div>
+      <span class="t" style="margin-top:6px">태그</span>
+      <div class="r" style="flex-wrap:wrap"><span class="chipd">#제로점재설정</span><span class="chipd">#위치센서</span><span class="chipd">#서보초기화</span><span class="chipd">+</span></div>
+      <div class="f1"></div><div class="bd p4 t ctr">카테고리 편집 / 삭제</div>
+    </div>
+    <div class="c p8 f1">
+      <div class="r" style="align-items:center"><span class="t f1">문서 12건 · 218MB / 500MB</span><span class="chipd">Scoped RAG 켜짐</span><span class="chipd btnp">+ 업로드</span></div>
+      <div class="line" style="width:44%"></div>
+      <div class="r"><div class="bd p4 t f1">문서명</div><div class="bd p4 t" style="width:90px">카테고리</div><div class="bd p4 t" style="width:70px">청크</div><div class="bd p4 t" style="width:70px">용량</div><div class="bd p4 t" style="width:80px">인덱싱</div></div>
+      <div class="r"><div class="line f1"></div><div class="line" style="width:90px"></div><div class="line" style="width:70px"></div><div class="line" style="width:70px"></div><div class="line" style="width:80px;background:#d9e8dc"></div></div>
+      <div class="r"><div class="line f1"></div><div class="line" style="width:90px"></div><div class="line" style="width:70px"></div><div class="line" style="width:70px"></div><div class="line" style="width:80px;background:#d9e8dc"></div></div>
+      <div class="r"><div class="line2 f1"></div><div class="line2" style="width:90px"></div><div class="line2" style="width:70px"></div><div class="line2" style="width:70px"></div><div class="line2" style="width:80px"></div></div>
+      <div class="r"><div class="line2 f1"></div><div class="line2" style="width:90px"></div><div class="line2" style="width:70px"></div><div class="line2" style="width:70px"></div><div class="line2" style="width:80px"></div></div>
+      <div class="bd p12 t ctr f1">파일 드래그 &amp; 드롭 영역 · 파일당 50MB 이하 / 프로젝트당 500MB</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2k">
+<div class="dv-olabel"><a class="dv-oid" href="#2k">2k</a>풀스크린 · 설정 (신뢰도 임계치 · 위험도/승인 정책)</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:560px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">◂ 대화로 돌아가기</span><span class="chipd">알람·토폴로지</span><span class="chipd">통계</span><span class="chipd">감사로그</span><span class="chipd">워크스페이스</span><span class="h sm">설정</span><div class="f1"></div><span class="chipd">Admin</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:180px"><div class="b p4 sm">신뢰도 임계치</div><div class="bd p4 sm">위험도 · 승인 정책</div><div class="bd p4 sm">승인자 / 에스컬레이션</div><div class="bd p4 sm">세션 만료</div><div class="bd p4 sm">계정 · 권한(RBAC)</div><div class="bd p4 sm">알림 규칙</div><div class="f1"></div><div class="bd p4 t ctr">변경 이력</div></div>
+    <div class="c p8 f1">
+      <span class="t">질의 유형별 RAG 신뢰도 기준값 (변경 시 이력 보관)</span>
+      <div class="r"><div class="b p6 c f1" style="gap:6px"><div class="r"><span class="sm f1">일반 지식</span><span class="chipd">0.70</span></div><div class="line" style="width:70%"></div></div>
+        <div class="b p6 c f1" style="gap:6px"><div class="r"><span class="sm f1">안전 · 제어</span><span class="chipd">0.80</span></div><div class="line" style="width:80%"></div></div>
+        <div class="b p6 c f1" style="gap:6px"><div class="r"><span class="sm f1">긴급 알람</span><span class="chipd">0.75</span></div><div class="line" style="width:75%"></div></div></div>
+      <span class="t" style="margin-top:4px">제어 명령 위험도 및 승인 요건</span>
+      <div class="r"><div class="bd p4 t f1">명령</div><div class="bd p4 t f1">대상 설비군</div><div class="bd p4 t" style="width:90px">위험도</div><div class="bd p4 t" style="width:120px">승인 요건</div><div class="bd p4 t" style="width:70px">수정</div></div>
+      <div class="r"><div class="line f1"></div><div class="line f1"></div><div class="line" style="width:90px"></div><div class="line" style="width:120px"></div><div class="line" style="width:70px"></div></div>
+      <div class="r"><div class="line f1"></div><div class="line f1"></div><div class="line" style="width:90px;background:#f2d9c6"></div><div class="line" style="width:120px"></div><div class="line" style="width:70px"></div></div>
+      <div class="r"><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2" style="width:90px"></div><div class="line2" style="width:120px"></div><div class="line2" style="width:70px"></div></div>
+      <div class="bd p4 t">신규 명령 등록 시 최고 위험도 기본 적용 · 승인 미처리 시 대체 승인자 자동 전달</div>
+      <div class="r f1" style="gap:8px"><div class="bd p8 c f1" style="gap:5px"><span class="t">임계치 변경 이력</span><div class="line2" style="width:76%"></div><div class="line2" style="width:60%"></div></div><div class="bd p8 c" style="gap:5px;width:260px"><span class="t">세션 만료 · Operator/Admin 단축 적용</span><div class="line2" style="width:70%"></div></div></div>
+      <div class="r" style="justify-content:flex-end"><span class="btn">되돌리기</span><span class="btn btnp">저장</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2l">
+<div class="dv-olabel"><a class="dv-oid" href="#2l">2l</a>풀스크린 · 알림 센터 / 관리자 2차 승인</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:560px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">◂ 대화로 돌아가기</span><span class="h sm">알림 센터</span><span class="chipd">승인 2</span><span class="chipd">제어 결과</span><span class="chipd">임계치 초과</span><span class="chipd">신고 처리</span><div class="f1"></div><span class="chipd">Admin</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:300px">
+      <div class="b p6 c" style="gap:4px"><div class="r"><span class="chip wr">승인 요청</span><span class="t f1">04:12 남음</span></div><span class="sm">S/C 1호기 알람 리셋 · 고위험</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="chipd">승인 요청</span><span class="sm">컨베이어 2라인 정지 해제</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="chipd">제어 결과</span><span class="sm">AGV-03 리셋 성공 · TX-99021</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="chipd wr">임계치</span><span class="sm">주간 부정확 신고 10건 초과</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="chipd">Fine-RAG</span><span class="sm">성공 조치 이력 2건 검증 대기</span></div>
+      <div class="f1"></div><div class="bd p4 t ctr">모두 읽음 · 알림 규칙 설정</div>
+    </div>
+    <div class="c p8 f1">
+      <span class="h sm">제어 승인 요청 상세</span>
+      <div class="r">
+        <div class="b p8 c f1" style="gap:5px"><div class="r"><span class="t" style="width:74px">요청자</span><span class="sm f1">OP-1002 김OO</span></div><div class="r"><span class="t" style="width:74px">대상 설비</span><span class="sm f1">S/C 1호기</span></div><div class="r"><span class="t" style="width:74px">명령</span><span class="sm f1">알람 원격 리셋 / E-203</span></div><div class="r"><span class="t" style="width:74px">위험도</span><span class="sm f1 wr">고위험</span></div></div>
+        <div class="b p8 c" style="gap:5px;width:280px"><span class="t">안전 체크리스트 결과</span><span class="sm">3 / 3 확인 완료 · 서명 있음</span><div class="bd p4 t">체크 시각 14:28 · 불변 기록</div></div>
+      </div>
+      <div class="bd p8 c f1" style="gap:5px"><span class="t">요청 맥락 — 대화 발췌 및 조치 이력</span><div class="line2" style="width:88%"></div><div class="line2" style="width:72%"></div><div class="line2" style="width:64%"></div></div>
+      <div class="r" style="align-items:center"><span class="t f1">미처리 시 대체 승인자 자동 전달 · 반려 사유는 요청자 대화창에 전달</span><span class="btn btnw">반려</span><span class="btn btnp">승인</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-grp">현장 태블릿 (동일 규칙 축소 적용)</div>
+
+<div class="dv-opt" id="2m">
+<div class="dv-olabel"><a class="dv-oid" href="#2m">2m</a>태블릿 세로 · 채팅 + SOP 카드 / 하단 전환 메뉴</div>
+<div class="dv-card">
+<div class="wf" style="width:420px;height:600px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">☰</span><span class="h sm f1">AGV 3호기 전용</span><span class="chipd">🔔</span></div>
+  <div class="c p8 f1">
+    <div class="r" style="justify-content:flex-end"><div class="b g p6 sm">라인 이탈 알람 조치법</div></div>
+    <div class="b p8 c f1" style="gap:7px"><span class="t ac">신뢰도 0.86 · SOP → 카드</span>
+      <div class="b p6 c" style="gap:4px"><span class="sm h">STEP 1 위치 센서 이물질 제거</span><div class="line" style="width:82%"></div></div>
+      <div class="b p6 c" style="gap:4px"><span class="sm h">STEP 2 제로점 재설정</span><div class="line2" style="width:70%"></div></div>
+      <div class="f1"></div>
+      <div class="bd p4 t">출처 AGV_매뉴얼_v3.2.pdf p.45 ▸</div>
+      <div class="r"><span class="chipd" style="padding:4px 12px">👍</span><span class="chipd" style="padding:4px 12px">👎</span></div>
+    </div>
+    <div class="r"><div class="b p12 f1 ctr sm">정비 일지 작성</div><div class="b p12 f1 ctr sm">알람 리셋</div></div>
+    <div class="r b p8" style="align-items:center"><span class="t f1">입력…</span><span class="chipd" style="padding:6px 12px">🎤</span><span class="chipd" style="padding:6px 12px">📎</span><span class="btn btnp" style="padding:6px 14px">전송</span></div>
+    <div class="r" style="border-top:1.5px solid #2b2b2b;padding-top:6px"><span class="chipd f1 ctr">대화</span><span class="chipd f1 ctr">알람</span><span class="chipd f1 ctr">통계</span><span class="chipd f1 ctr">더보기</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2o">
+<div class="dv-olabel"><a class="dv-oid" href="#2o">2o</a>태블릿 가로 · 좌 대화 / 우 SOP 카드 분할, 조작 버튼은 우측 고정</div>
+<div class="dv-card">
+<div class="wf" style="width:820px;height:520px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">☰</span><span class="h sm">AGV 3호기 전용</span><span class="chipd">RAG 범위 활성</span><div class="f1"></div><span class="chipd">🔔 3</span><span class="chipd">Operator</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:330px">
+      <div class="r" style="justify-content:flex-end"><div class="b g p6 sm">라인 이탈 알람 조치법</div></div>
+      <div class="b p6 c" style="gap:5px"><span class="t ac">신뢰도 0.86 · 2.1초</span><div class="line" style="width:86%"></div><div class="line2" style="width:64%"></div><div class="r"><span class="chipd" style="padding:4px 12px">👍</span><span class="chipd" style="padding:4px 12px">👎</span></div></div>
+      <div class="r"><span class="chip">AGV 3호기</span><span class="chip">S/C 1호기</span></div>
+      <div class="f1"></div>
+      <div class="r b p8" style="align-items:center"><span class="t f1">입력…</span><span class="chipd" style="padding:6px 12px">🎤</span><span class="chipd" style="padding:6px 12px">📎</span><span class="btn btnp" style="padding:6px 14px">전송</span></div>
+      <div class="r"><span class="chipd f1 ctr">대화</span><span class="chipd f1 ctr">알람</span><span class="chipd f1 ctr">더보기</span></div>
+    </div>
+    <div class="c p8 f1">
+      <div class="r" style="align-items:center"><span class="h sm f1">조치 수순 · AGV-ERR-104</span><span class="chipd">도면 p.45 ▸</span></div>
+      <div class="b p8 c" style="gap:5px"><div class="r"><span class="chip">STEP 1</span><span class="sm h f1">위치 센서 이물질 제거</span><span class="chipd">☐ 완료</span></div><div class="line" style="width:88%"></div><div class="line2" style="width:66%"></div></div>
+      <div class="b p8 c" style="gap:5px"><div class="r"><span class="chip">STEP 2</span><span class="sm h f1">제로점 재설정</span><span class="chipd">☐ 완료</span></div><div class="line" style="width:80%"></div><div class="line2" style="width:58%"></div></div>
+      <div class="bd p6 t wr">⚠ 안전 유의사항 — LOTO / 전원 차단</div>
+      <div class="f1"></div>
+      <div class="bd p4 t">출처 AGV_정비매뉴얼_v3.2.pdf p.45 · SOP-AGV-104</div>
+      <div class="r"><div class="b p12 f1 ctr sm">정비 일지 작성</div><div class="b btnp p12 f1 ctr sm" style="font-weight:700">알람 리셋</div></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2n">
+<div class="dv-olabel"><a class="dv-oid" href="#2n">2n</a>태블릿 세로 · 안전 체크 모달 → 실행 / Fail-Safe</div>
+<div class="dv-card">
+<div class="wf" style="width:420px;height:600px;position:relative">
+  <div class="c p8 f1 gg" style="gap:6px"><div class="line2" style="width:70%"></div><div class="line2" style="width:56%"></div><div class="f1"></div><div class="line2" style="width:64%"></div></div>
+  <div class="c b p8" style="gap:8px;position:absolute;left:14px;right:14px;top:60px;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,.22)">
+    <span class="h sm">현장 안전 확인 · AGV-03 / E-104</span>
+    <div class="r b p8" style="align-items:center"><span class="chipd" style="padding:4px 10px">☑</span><span class="sm f1">작업자 접근 차단</span></div>
+    <div class="r b p8" style="align-items:center"><span class="chipd" style="padding:4px 10px">☑</span><span class="sm f1">물리 점검 완료</span></div>
+    <div class="r b p8" style="align-items:center"><span class="chipd" style="padding:4px 10px">☐</span><span class="sm f1">비상정지 스위치 정상</span></div>
+    <div class="b p8 ctr" style="justify-content:center">확인자 서명란</div>
+    <div class="r"><span class="btn f1 ctr" style="justify-content:center;padding:8px">취소</span><span class="btn btnd f1 ctr" style="justify-content:center;padding:8px">실행 (2/3)</span></div>
+  </div>
+  <div class="c p8" style="gap:8px;position:absolute;left:14px;right:14px;bottom:12px">
+    <div class="b p8 c" style="gap:5px"><span class="t">실행 중</span><div class="line" style="width:60%;background:#2a78d6"></div><span class="t">중계 서버 응답 대기 1.5초…</span></div>
+    <div class="b p8 c" style="gap:5px;border-color:#c25a12"><span class="sm wr h">⚠ 3초 초과 — Fail-Safe 차단</span><span class="sm">현장 수동 제어반에서 점검하세요.</span><div class="r"><span class="chipd">BCP 절차</span><span class="chipd">핫라인</span></div></div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">다음에 해볼 것: "<a class="dv-oid" href="#2b">2b</a> 표 컬럼 실제 데이터 항목으로 채워줘" · "<a class="dv-oid" href="#2g">2g</a> 토폴로지를 노드 연결선까지 그려줘" · "<a class="dv-oid" href="#2m">2m</a> 태블릿 세로/가로 두 버전"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Factory Operation AI Agent — 와이어프레임 1차</span></div>
+<div class="dv-opts">
+
+<div class="dv-grp">A · 전체 셸 레이아웃</div>
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>채팅 중심 — 대화가 화면 전체, 데이터는 응답 버블 안에서만</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:600px">
+  <div class="r p8 bar" style="align-items:center"><span class="h">Factory Ops AI Agent</span><div class="f1"></div><span class="chipd">🔔 3</span><span class="chipd">Operator · 김OO</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:190px">
+      <div class="btn btnp ctr" style="justify-content:center">+ 새 대화</div>
+      <div class="t">프로젝트</div><div class="b p4 sm">AGV 3호기 전용</div><div class="bd p4 sm">가류 라인 보전</div>
+      <div class="t" style="margin-top:4px">최근 대화</div>
+      <div class="bd p4 t">S/C 1호기 알람 리셋</div><div class="bd p4 t">버퍼 체류 45분 초과</div><div class="bd p4 t">RGV PM 체크리스트</div>
+      <div class="f1"></div><div class="bd p4 t ctr">감사로그 · 통계 · 설정</div>
+    </div>
+    <div class="c p12 f1">
+      <div class="r" style="justify-content:flex-end"><div class="b g p8 sm" style="max-width:430px">AGV 3호기 라인 이탈 알람 조치 SOP 알려줘</div></div>
+      <div class="c b p8 f1" style="gap:8px">
+        <div class="r t"><span>AI 응답</span><span class="ac">신뢰도 0.86</span><span>2.1초</span></div>
+        <div class="r" style="gap:6px"><div class="b p4 f1 sm"><span class="h">1단계</span> 위치 센서 이물질 제거</div><div class="b p4 f1 sm"><span class="h">2단계</span> 제로점 재설정</div></div>
+        <div class="bd p6 t">⚠ 안전 유의사항 — LOTO / 전원 차단 문구 영역</div>
+        <div class="line" style="width:88%"></div><div class="line" style="width:72%"></div>
+        <div class="f1"></div>
+        <div class="bd p4 t">출처 [1] AGV_정비매뉴얼_v3.2.pdf p.45 · [2] SOP-AGV-104</div>
+        <div class="r"><span class="chipd">👍</span><span class="chipd">👎</span><span class="chipd">정비 일지 작성</span><span class="chipd">알람 리셋 요청</span></div>
+      </div>
+      <div class="r b p6" style="align-items:center"><span class="t f1">프롬프트 입력…</span><span class="chipd">🎤</span><span class="chipd">📎</span><span class="btn btnp">전송</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>대시보드 중심 — 상시 관제 위젯이 주, 채팅은 우측 패널</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:600px">
+  <div class="r p8 bar" style="align-items:center"><span class="h">Factory Ops AI Agent</span><span class="chipd">관제</span><span class="chipd">지식</span><span class="chipd">통계</span><span class="chipd">관리</span><div class="f1"></div><span class="chipd">🔔 3</span><span class="chipd">Admin</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 f1">
+      <div class="r"><div class="b p8 f1 c" style="gap:6px"><span class="t">설비 가동률 OEE</span><div class="line" style="width:60%"></div><div class="line2"></div></div>
+        <div class="b p8 f1 c" style="gap:6px"><span class="t">알람 발생 (24h)</span><div class="line" style="width:40%"></div><div class="line2"></div></div>
+        <div class="b p8 f1 c" style="gap:6px"><span class="t wr">체류 지연 4건</span><div class="line" style="width:75%"></div><div class="line2"></div></div></div>
+      <div class="b p8 f1 c" style="gap:6px"><span class="t">설비 상태 목록 (AGV / RGV / S/C / C-V)</span>
+        <div class="r"><div class="bd p4 t f1">호기</div><div class="bd p4 t f1">상태</div><div class="bd p4 t f1">위치</div><div class="bd p4 t f1">배터리</div><div class="bd p4 t f1">알람</div></div>
+        <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line2"></div><div class="line2"></div></div>
+      <div class="b p8 c" style="gap:6px;height:130px"><span class="t">알람 이력 타임라인</span><div class="line" style="width:92%"></div><div class="line2" style="width:66%"></div><div class="line2" style="width:80%"></div></div>
+    </div>
+    <div class="c p8" style="width:300px;border-left:1.5px solid #2b2b2b">
+      <div class="r"><span class="h sm f1">AI 에이전트</span><span class="chipd">확대</span></div>
+      <div class="b g p6 sm">S/C 1호기 최근 알람 원인은?</div>
+      <div class="b p6 c f1" style="gap:6px"><span class="t ac">신뢰도 0.81</span><div class="line" style="width:90%"></div><div class="line" style="width:78%"></div><div class="line2" style="width:85%"></div><div class="f1"></div><div class="bd p4 t">출처 2건</div></div>
+      <div class="r b p4"><span class="t f1">입력…</span><span class="chipd">🎤</span><span class="chipd">📎</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>하이브리드 — 채팅이 주, 응답이 우측 결과 캔버스로 확장</div>
+<div class="dv-card">
+<div class="wf" style="width:1000px;height:600px">
+  <div class="r p8 bar" style="align-items:center"><span class="h">Factory Ops AI Agent</span><div class="f1"></div><span class="chipd">🔔 3</span><span class="chipd">Operator</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p6 sb" style="width:62px"><div class="bd p4 t ctr">💬</div><div class="bd p4 t ctr">📁</div><div class="bd p4 t ctr">📊</div><div class="bd p4 t ctr">🗂</div><div class="f1"></div><div class="bd p4 t ctr">⚙</div></div>
+    <div class="c p8 sb" style="width:330px">
+      <div class="r" style="justify-content:flex-end"><div class="b g p6 sm">버퍼 체류 45분 초과 목록 보여줘</div></div>
+      <div class="b p6 c" style="gap:6px"><span class="t">4건 탐지 → 우측 캔버스에 표 표출</span><div class="line" style="width:85%"></div><div class="r"><span class="chipd">👍</span><span class="chipd">👎</span></div></div>
+      <div class="r"><span class="chip">AGV 3호기</span><span class="chip">S/C 1호기</span></div>
+      <div class="f1"></div>
+      <div class="r b p4"><span class="t f1">입력…</span><span class="chipd">🎤</span><span class="chipd">📎</span><span class="btn btnp">전송</span></div>
+    </div>
+    <div class="c p8 f1">
+      <div class="r" style="align-items:center"><span class="h sm f1">결과 캔버스 — 공정 버퍼 체류 현황</span><span class="chipd">표</span><span class="chipd">차트</span><span class="chipd">내보내기</span></div>
+      <div class="b p8 c f1" style="gap:6px">
+        <div class="r"><div class="bd p4 t f1">Pallet ID</div><div class="bd p4 t f1">품목</div><div class="bd p4 t f1">체류(분)</div><div class="bd p4 t f1">위치</div><div class="bd p4 t" style="width:70px">상태</div></div>
+        <div class="r"><div class="line f1"></div><div class="line f1"></div><div class="line f1"></div><div class="line f1"></div><div class="line wr" style="width:70px;background:#f2d9c6"></div></div>
+        <div class="r"><div class="line f1"></div><div class="line f1"></div><div class="line f1"></div><div class="line f1"></div><div class="line" style="width:70px;background:#f2d9c6"></div></div>
+        <div class="r"><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2" style="width:70px"></div></div>
+        <div class="r"><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2" style="width:70px"></div></div>
+        <div class="f1"></div>
+        <div class="bd p6 t">출처 · 중계 서버 GET /inv/buffer · 조회 14:32:10</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-grp">B · 사이드바 구성</div>
+
+<div class="dv-opt" id="1d">
+<div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>프로젝트 우선 — 워크스페이스가 최상위, RAG 범위와 직결</div>
+<div class="dv-card">
+<div class="wf" style="width:300px;height:520px">
+  <div class="c p8 f1">
+    <div class="btn btnp ctr" style="justify-content:center">+ 새 대화</div>
+    <div class="r" style="align-items:center"><span class="t f1">프로젝트 워크스페이스</span><span class="chipd">+</span></div>
+    <div class="b p6 c" style="gap:5px"><span class="h sm">AGV 3호기 전용</span><span class="t">문서 12 · 활성 RAG 범위</span><div class="r"><span class="chipd">#제로점재설정</span><span class="chipd">#위치센서</span></div></div>
+    <div class="bd p6 c" style="gap:5px"><span class="sm">가류 라인 보전 지침</span><span class="t">문서 7</span></div>
+    <div class="bd p6 c" style="gap:5px"><span class="sm">자재 창고 입출고 규칙</span><span class="t">문서 4</span></div>
+    <div class="t" style="margin-top:4px">카테고리</div>
+    <div class="bd p4 t">▸ 설비별 매뉴얼</div><div class="bd p4 t">▸ 안전/BCP</div><div class="bd p4 t">▸ 표준 데이터</div>
+    <div class="t" style="margin-top:4px">최근 대화</div>
+    <div class="line"></div><div class="line2"></div><div class="line2"></div>
+    <div class="f1"></div>
+    <div class="bd p4 t ctr">감사로그 · 통계 · 설정</div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1e">
+<div class="dv-olabel"><a class="dv-oid" href="#1e">1e</a>설비 트리 우선 — 공장·라인·설비 계층에서 대상 지정 후 질의</div>
+<div class="dv-card">
+<div class="wf" style="width:300px;height:520px">
+  <div class="c p8 f1">
+    <div class="r b p4"><span class="t f1">설비 검색…</span><span class="t">⌕</span></div>
+    <div class="t">공장 토폴로지</div>
+    <div class="b p6 c" style="gap:5px">
+      <span class="sm h">▾ 1공장</span>
+      <span class="sm" style="padding-left:10px">▾ 이송 라인 A</span>
+      <div class="r" style="padding-left:20px;align-items:center"><span class="sm f1">AGV 3호기</span><span class="chipd wr">알람 2</span></div>
+      <div class="r" style="padding-left:20px;align-items:center"><span class="sm f1">AGV 4호기</span><span class="chipd">정상</span></div>
+      <span class="sm" style="padding-left:10px">▾ AS/RS</span>
+      <div class="r" style="padding-left:20px;align-items:center"><span class="sm f1">S/C 1호기</span><span class="chipd wr">알람 1</span></div>
+      <div class="r" style="padding-left:20px;align-items:center"><span class="sm f1">S/C 2호기</span><span class="chipd">정상</span></div>
+      <span class="sm" style="padding-left:10px">▸ 컨베이어</span>
+    </div>
+    <div class="bd p6 c" style="gap:5px"><span class="t">선택: AGV 3호기</span><div class="r"><span class="chipd">상태 조회</span><span class="chipd">SOP</span><span class="chipd">알람 이력</span></div></div>
+    <div class="t">최근 대화</div><div class="line"></div><div class="line2"></div>
+    <div class="f1"></div>
+    <div class="bd p4 t ctr">프로젝트 전환 ▸</div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1f">
+<div class="dv-olabel"><a class="dv-oid" href="#1f">1f</a>탭 전환형 — 좁은 아이콘 레일 + 히스토리 검색이 기본 뷰</div>
+<div class="dv-card">
+<div class="wf" style="width:340px;height:520px">
+  <div class="r f1" style="gap:0">
+    <div class="c p6 sb" style="width:56px"><div class="b p4 t ctr">💬</div><div class="bd p4 t ctr">📁</div><div class="bd p4 t ctr">🌲</div><div class="bd p4 t ctr">🔔</div><div class="f1"></div><div class="bd p4 t ctr">⚙</div></div>
+    <div class="c p8 f1">
+      <div class="r b p4"><span class="t f1">대화 이력 검색…</span><span class="t">⌕</span></div>
+      <div class="r"><span class="chip">전체</span><span class="chipd">SOP</span><span class="chipd">재고</span><span class="chipd">제어</span></div>
+      <div class="t">오늘</div>
+      <div class="bd p6 c" style="gap:4px"><span class="sm">S/C 1호기 알람 리셋</span><span class="t">제어 · 성공 · 14:30</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="sm">버퍼 체류 45분 초과</span><span class="t">재고 · 14:02</span></div>
+      <div class="t">어제</div>
+      <div class="bd p6 c" style="gap:4px"><span class="sm">RGV PM 체크리스트</span><span class="t">산출물</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="sm">E-203 매뉴얼 요약</span><span class="t">멀티모달 · PDF 1</span></div>
+      <div class="line2"></div><div class="line2"></div>
+      <div class="f1"></div>
+      <div class="bd p4 t ctr">기간 필터 · 내보내기</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-grp">C · 안전 제어 흐름</div>
+
+<div class="dv-opt" id="1g">
+<div class="dv-olabel"><a class="dv-oid" href="#1g">1g</a>모달형 — 대화 위에 팝업, 전 항목 체크 전 실행 버튼 비활성</div>
+<div class="dv-card">
+<div class="wf" style="width:520px;height:480px;position:relative">
+  <div class="c p8 f1 gg" style="gap:6px"><div class="line2" style="width:70%"></div><div class="line2" style="width:55%"></div><div class="line2" style="width:80%"></div><div class="f1"></div><div class="line2" style="width:60%"></div></div>
+  <div class="c b p12" style="gap:8px;position:absolute;left:40px;right:40px;top:70px;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.18)">
+    <span class="h">현장 안전 확인 체크리스트</span>
+    <div class="bd p6 t">대상 AGV-03 · 알람 E-104 · 명령 원격 리셋</div>
+    <div class="r b p6" style="align-items:center"><span class="chipd">☑</span><span class="sm f1">작업자 접근 차단 확인</span></div>
+    <div class="r b p6" style="align-items:center"><span class="chipd">☑</span><span class="sm f1">현장 물리 점검 완료</span></div>
+    <div class="r b p6" style="align-items:center"><span class="chipd">☐</span><span class="sm f1">비상정지 스위치 정상</span></div>
+    <div class="r b p6" style="align-items:center"><span class="t f1">확인자 서명 입력란</span><span class="chipd">서명</span></div>
+    <div class="bd p6 t wr">⚠ 1개라도 미체크 시 제어 파이프라인 즉시 종료</div>
+    <div class="r" style="justify-content:flex-end"><span class="btn">취소</span><span class="btn btnd">원격 제어 실행 (비활성)</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1h">
+<div class="dv-olabel"><a class="dv-oid" href="#1h">1h</a>인라인 카드형 — 대화 흐름 안에서 체크, 맥락 이탈 없음</div>
+<div class="dv-card">
+<div class="wf" style="width:520px;height:480px">
+  <div class="c p8 f1">
+    <div class="r" style="justify-content:flex-end"><div class="b g p6 sm">수동 조치 완료, AGV 3호기 알람 원격 리셋해줘</div></div>
+    <div class="b p8 c" style="gap:7px">
+      <span class="t">제어 요청 인식 · 권한 검증 통과 (Operator)</span>
+      <span class="h sm">진행 전 안전 확인이 필요합니다</span>
+      <div class="r b p4" style="align-items:center"><span class="chipd">☑</span><span class="sm f1">작업자 접근 차단</span></div>
+      <div class="r b p4" style="align-items:center"><span class="chipd">☑</span><span class="sm f1">물리 점검 완료</span></div>
+      <div class="r b p4" style="align-items:center"><span class="chipd">☐</span><span class="sm f1">비상정지 스위치 정상</span></div>
+      <div class="r" style="justify-content:flex-end"><span class="btn">중단</span><span class="btn btnd">실행 (2/3)</span></div>
+    </div>
+    <div class="bd p6 t">대기 중 · 중계 서버 응답 목표 1.5초 / 3초 초과 시 Fail-Safe</div>
+    <div class="f1"></div>
+    <div class="r b p4"><span class="t f1">입력…</span><span class="chipd">🎤</span><span class="btn btnp">전송</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1i">
+<div class="dv-olabel"><a class="dv-oid" href="#1i">1i</a>단계형 위저드 — 권한→안전→승인→실행→로그를 한 스텝씩</div>
+<div class="dv-card">
+<div class="wf" style="width:520px;height:480px">
+  <div class="r p8 bar"><span class="h sm f1">원격 제어 · AGV-03 / E-104</span><span class="chipd">3 / 5</span></div>
+  <div class="r p8" style="gap:4px"><div class="line f1" style="background:#2a78d6"></div><div class="line f1" style="background:#2a78d6"></div><div class="line f1" style="background:#2a78d6"></div><div class="line2 f1"></div><div class="line2 f1"></div></div>
+  <div class="r p8 t" style="gap:0"><span class="f1">권한</span><span class="f1">안전</span><span class="f1 ac">승인</span><span class="f1">실행</span><span class="f1">기록</span></div>
+  <div class="c p12 f1" style="gap:8px">
+    <span class="h">STEP 3 — 위험도 평가 및 관리자 승인</span>
+    <div class="b p8 c" style="gap:6px"><span class="t">위험도 판정</span><div class="r"><span class="chip">일반</span><span class="chip wr">고위험 ✓</span></div><span class="t">고위험 명령 → 상급 관리자 2차 승인 필요</span></div>
+    <div class="b p8 c" style="gap:6px"><span class="t">승인 요청 상태</span><div class="line" style="width:45%"></div><span class="t">승인자 이OO 대기 중 · 남은 시간 04:12 · 초과 시 대체 승인자 자동 전달</span></div>
+    <div class="f1"></div>
+    <div class="r" style="justify-content:space-between"><span class="btn">이전</span><span class="btn btnd">다음 (승인 대기)</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-grp">D · 응답 결과 표현</div>
+
+<div class="dv-opt" id="1j">
+<div class="dv-olabel"><a class="dv-oid" href="#1j">1j</a>카드형 — SOP 단계를 카드로 분해, 현장에서 한 단계씩 소화</div>
+<div class="dv-card">
+<div class="wf" style="width:460px;height:430px">
+  <div class="c p8 f1">
+    <div class="r t"><span>AI 응답</span><span class="ac">신뢰도 0.86</span></div>
+    <div class="b p8 c" style="gap:5px"><div class="r"><span class="chip">STEP 1</span><span class="sm h f1">위치 센서 이물질 제거</span></div><div class="line" style="width:90%"></div><div class="line2" style="width:70%"></div><div class="bd p4 t">도면 p.45 ▸</div></div>
+    <div class="b p8 c" style="gap:5px"><div class="r"><span class="chip">STEP 2</span><span class="sm h f1">제로점 재설정</span></div><div class="line" style="width:80%"></div><div class="line2" style="width:62%"></div></div>
+    <div class="bd p6 c" style="gap:4px"><span class="t wr">⚠ 안전 유의사항</span><div class="line2" style="width:75%"></div></div>
+    <div class="f1"></div>
+    <div class="bd p4 t">출처 [1] AGV_매뉴얼_v3.2.pdf p.45 · [2] SOP-AGV-104</div>
+    <div class="r"><span class="chipd">👍</span><span class="chipd">👎</span><span class="chipd">일지 작성</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1k">
+<div class="dv-olabel"><a class="dv-oid" href="#1k">1k</a>표형 — 재고·설비 목록처럼 다건 데이터를 정렬/필터로 다룸</div>
+<div class="dv-card">
+<div class="wf" style="width:460px;height:430px">
+  <div class="c p8 f1">
+    <div class="r t"><span>AI 응답 · 4건</span><span>중계 서버 GET /inv/buffer</span></div>
+    <div class="r"><span class="chipd">체류 ▾</span><span class="chipd">구역</span><span class="chipd">상태</span><div class="f1"></div><span class="chipd">엑셀</span></div>
+    <div class="b p6 c f1" style="gap:5px">
+      <div class="r"><div class="bd p4 t f1">Pallet</div><div class="bd p4 t f1">품목</div><div class="bd p4 t" style="width:64px">체류</div><div class="bd p4 t" style="width:64px">상태</div></div>
+      <div class="r"><div class="line f1"></div><div class="line f1"></div><div class="line" style="width:64px"></div><div class="line" style="width:64px;background:#f2d9c6"></div></div>
+      <div class="r"><div class="line f1"></div><div class="line f1"></div><div class="line" style="width:64px"></div><div class="line" style="width:64px;background:#f2d9c6"></div></div>
+      <div class="r"><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2" style="width:64px"></div><div class="line2" style="width:64px;background:#f3ecd6"></div></div>
+      <div class="r"><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2" style="width:64px"></div><div class="line2" style="width:64px;background:#f3ecd6"></div></div>
+      <div class="f1"></div>
+      <div class="bd p4 t">범례 정상/주의/지연 · 페이지 1 of 1</div>
+    </div>
+    <div class="r"><span class="chipd">👍</span><span class="chipd">👎</span><span class="chipd">이송 알림 발송</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1l">
+<div class="dv-olabel"><a class="dv-oid" href="#1l">1l</a>타임라인형 — 알람·조치·제어 이력을 시간축으로 되짚음</div>
+<div class="dv-card">
+<div class="wf" style="width:460px;height:430px">
+  <div class="c p8 f1">
+    <div class="r t"><span>AI 응답 · S/C 1호기 최근 24시간</span></div>
+    <div class="b p8 c f1" style="gap:8px">
+      <div class="r" style="gap:8px"><span class="t" style="width:44px">09:12</span><div class="c f1" style="gap:3px"><span class="sm h">알람 발생 E-203</span><div class="line" style="width:70%"></div></div></div>
+      <div class="r" style="gap:8px"><span class="t" style="width:44px">09:20</span><div class="c f1" style="gap:3px"><span class="sm">SOP 조회 · 3단계 안내</span><div class="line2" style="width:55%"></div></div></div>
+      <div class="r" style="gap:8px"><span class="t" style="width:44px">09:48</span><div class="c f1" style="gap:3px"><span class="sm">현장 조치 완료 기록</span><div class="line2" style="width:48%"></div></div></div>
+      <div class="r" style="gap:8px"><span class="t" style="width:44px">09:51</span><div class="c f1" style="gap:3px"><span class="sm ok">원격 리셋 성공 · TX-99021</span><div class="line2" style="width:62%"></div></div></div>
+      <div class="f1"></div>
+      <div class="bd p6 t">연관 설비 · 인터록 관계 요약 영역</div>
+    </div>
+    <div class="r"><span class="chipd">👍</span><span class="chipd">👎</span><span class="chipd">토폴로지 보기</span><span class="chipd">일지 작성</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-grp">E · 개별 화면</div>
+
+<div class="dv-opt" id="1m">
+<div class="dv-olabel"><a class="dv-oid" href="#1m">1m</a>감사 로그 그리드 (Read-Only)</div>
+<div class="dv-card">
+<div class="wf" style="width:760px;height:440px">
+  <div class="r p8 bar" style="align-items:center"><span class="h sm f1">감사 로그 · Audit Log</span><span class="chipd">기간 2026-08-01 ~ 08-18</span><span class="chipd">엑셀 다운로드</span></div>
+  <div class="r p8"><span class="chipd">전체</span><span class="chipd">성공</span><span class="chipd wr">실패</span><span class="chipd">Fail-Safe</span><div class="f1"></div><span class="t">위변조 검증 HMAC ✓</span></div>
+  <div class="c p8 f1" style="gap:5px">
+    <div class="r"><div class="bd p4 t" style="width:110px">일시</div><div class="bd p4 t f1">요청자</div><div class="bd p4 t f1">승인자</div><div class="bd p4 t f1">설비</div><div class="bd p4 t f1">명령</div><div class="bd p4 t" style="width:80px">결과</div><div class="bd p4 t" style="width:70px">응답</div></div>
+    <div class="r"><div class="line" style="width:110px"></div><div class="line f1"></div><div class="line f1"></div><div class="line f1"></div><div class="line f1"></div><div class="line" style="width:80px;background:#d9e8dc"></div><div class="line" style="width:70px"></div></div>
+    <div class="r"><div class="line" style="width:110px"></div><div class="line f1"></div><div class="line f1"></div><div class="line f1"></div><div class="line f1"></div><div class="line" style="width:80px;background:#f2d9c6"></div><div class="line" style="width:70px"></div></div>
+    <div class="r"><div class="line2" style="width:110px"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2" style="width:80px"></div><div class="line2" style="width:70px"></div></div>
+    <div class="r"><div class="line2" style="width:110px"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2" style="width:80px"></div><div class="line2" style="width:70px"></div></div>
+    <div class="r"><div class="line2" style="width:110px"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2 f1"></div><div class="line2" style="width:80px"></div><div class="line2" style="width:70px"></div></div>
+    <div class="f1"></div>
+    <div class="r"><span class="t f1">수정·삭제 불가 · 3년 보관</span><span class="chipd">◂ 1 2 3 ▸</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1n">
+<div class="dv-olabel"><a class="dv-oid" href="#1n">1n</a>프로젝트 워크스페이스 / 카테고리·태그 관리</div>
+<div class="dv-card">
+<div class="wf" style="width:760px;height:440px">
+  <div class="r p8 bar" style="align-items:center"><span class="h sm f1">프로젝트 · AGV 3호기 전용 관리 공간</span><span class="chipd">이름 변경</span><span class="chipd btnp">+ 문서 업로드</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:200px"><span class="t">카테고리 트리</span>
+      <div class="b p4 sm">▾ AGV 3호기 전용 매뉴얼</div>
+      <div class="bd p4 t" style="margin-left:10px">정비 도면</div><div class="bd p4 t" style="margin-left:10px">SOP</div>
+      <div class="bd p4 sm">▸ 공정 라인 보전 지침</div>
+      <div class="chipd ctr">+ 카테고리 추가</div>
+      <span class="t" style="margin-top:6px">태그</span>
+      <div class="r" style="flex-wrap:wrap"><span class="chipd">#제로점재설정</span><span class="chipd">#위치센서</span><span class="chipd">+</span></div>
+    </div>
+    <div class="c p8 f1">
+      <div class="r"><span class="t f1">문서 12건 · 용량 218MB / 500MB</span><span class="chipd">Scoped RAG 켜짐</span></div>
+      <div class="line" style="width:44%"></div>
+      <div class="r"><div class="bd p4 t f1">문서명</div><div class="bd p4 t" style="width:80px">청크</div><div class="bd p4 t" style="width:80px">용량</div><div class="bd p4 t" style="width:80px">상태</div></div>
+      <div class="r"><div class="line f1"></div><div class="line" style="width:80px"></div><div class="line" style="width:80px"></div><div class="line" style="width:80px;background:#d9e8dc"></div></div>
+      <div class="r"><div class="line f1"></div><div class="line" style="width:80px"></div><div class="line" style="width:80px"></div><div class="line" style="width:80px;background:#d9e8dc"></div></div>
+      <div class="r"><div class="line2 f1"></div><div class="line2" style="width:80px"></div><div class="line2" style="width:80px"></div><div class="line2" style="width:80px"></div></div>
+      <div class="bd p8 t ctr f1">파일 드래그 &amp; 드롭 영역 (PDF/Office/이미지 · 50MB 이하)</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1o">
+<div class="dv-olabel"><a class="dv-oid" href="#1o">1o</a>정비 일지 자동 생성 폼 (초안 → 검토 → 저장)</div>
+<div class="dv-card">
+<div class="wf" style="width:520px;height:480px">
+  <div class="r p8 bar"><span class="h sm f1">정비 일지 초안 · 자동 생성됨</span><span class="chipd">세션 이력 기반</span></div>
+  <div class="c p8 f1">
+    <div class="r"><div class="c f1" style="gap:4px"><span class="t">설비</span><div class="b p4 sm">AGV 3호기</div></div><div class="c f1" style="gap:4px"><span class="t">알람 코드</span><div class="b p4 sm">AGV-ERR-104</div></div></div>
+    <div class="r"><div class="c f1" style="gap:4px"><span class="t">발생 일시</span><div class="b p4 sm">2026-08-18 14:02</div></div><div class="c f1" style="gap:4px"><span class="t">복구 일시</span><div class="b p4 sm">14:31</div></div></div>
+    <div class="c" style="gap:4px"><span class="t">고장 현상 / 원인</span><div class="b p6 c" style="gap:5px"><div class="line" style="width:88%"></div><div class="line2" style="width:64%"></div></div></div>
+    <div class="c f1" style="gap:4px"><span class="t">조치 내역 (필수)</span><div class="b p6 c f1" style="gap:5px"><div class="line" style="width:92%"></div><div class="line" style="width:78%"></div><div class="line2" style="width:56%"></div><div class="f1"></div><span class="t">직접 수정 가능</span></div></div>
+    <div class="bd p6 t">첨부 · 원격 리셋 TX-99021 / 안전 체크 로그 자동 연결</div>
+    <div class="r" style="align-items:center"><span class="chipd">☐ Fine-RAG 지식으로 등록 요청</span><div class="f1"></div><span class="btn">취소</span><span class="btn btnp">저장</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1p">
+<div class="dv-olabel"><a class="dv-oid" href="#1p">1p</a>통계 · KPI 대시보드 (MTTR / OEE / FAQ)</div>
+<div class="dv-card">
+<div class="wf" style="width:760px;height:460px">
+  <div class="r p8 bar" style="align-items:center"><span class="h sm f1">통계 · KPI</span><span class="chipd">주간</span><span class="chipd">월간</span><span class="chipd">리포트 생성</span></div>
+  <div class="c p8 f1">
+    <div class="r"><div class="b p8 f1 c" style="gap:5px"><span class="t">MTTR</span><span class="h">— 분</span><div class="line" style="width:58%"></div></div>
+      <div class="b p8 f1 c" style="gap:5px"><span class="t">MTBF</span><span class="h">— 시간</span><div class="line" style="width:72%"></div></div>
+      <div class="b p8 f1 c" style="gap:5px"><span class="t">시간가동률</span><span class="h">— %</span><div class="line" style="width:84%"></div></div>
+      <div class="b p8 f1 c" style="gap:5px"><span class="t">제어 성공률</span><span class="h">— %</span><div class="line" style="width:90%"></div></div></div>
+    <div class="r f1">
+      <div class="b p8 f1 c" style="gap:6px"><span class="t">설비별 비가동 원인 (Top 5)</span><div class="r" style="align-items:flex-end;gap:10px;flex:1"><div class="g f1" style="height:60%"></div><div class="g f1" style="height:80%"></div><div class="g f1" style="height:45%"></div><div class="g f1" style="height:30%"></div><div class="g f1" style="height:20%"></div></div><span class="t">막대 차트 자리</span></div>
+      <div class="b p8 f1 c" style="gap:6px"><span class="t">FAQ TOP 10 · 질의 카테고리 비율</span><div class="line"></div><div class="line" style="width:88%"></div><div class="line2" style="width:76%"></div><div class="line2" style="width:64%"></div><div class="line2" style="width:52%"></div><div class="f1"></div><span class="t">부정확 신고 · 답변 불가 비율 배지</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1q">
+<div class="dv-olabel"><a class="dv-oid" href="#1q">1q</a>알람 이력 + 토폴로지 뷰</div>
+<div class="dv-card">
+<div class="wf" style="width:760px;height:460px">
+  <div class="r p8 bar" style="align-items:center"><span class="h sm f1">알람 이력 · 토폴로지</span><span class="chipd">최근 24시간</span><span class="chipd">설비/호기</span><span class="chipd">알람코드</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb f1">
+      <span class="t">토폴로지 뷰 — 공장 · 라인 · 설비 · 유닛</span>
+      <div class="b p12 c f1" style="gap:12px;align-items:center;justify-content:center">
+        <div class="b p4 sm">1공장</div>
+        <div class="r" style="gap:26px"><div class="b p4 sm">이송 라인 A</div><div class="b p4 sm">AS/RS</div></div>
+        <div class="r" style="gap:12px"><div class="bd p4 t">AGV-03 ●</div><div class="bd p4 t">AGV-04</div><div class="bd p4 t wr">S/C-01 ●●</div><div class="bd p4 t">S/C-02</div></div>
+        <span class="t">알람 집중 구역은 진하게 · 연결선은 인터록 관계</span>
+      </div>
+    </div>
+    <div class="c p8" style="width:290px">
+      <span class="t">알람 목록</span>
+      <div class="r"><div class="bd p4 t" style="width:56px">시각</div><div class="bd p4 t f1">설비</div><div class="bd p4 t" style="width:70px">코드</div></div>
+      <div class="r"><div class="line" style="width:56px"></div><div class="line f1"></div><div class="line" style="width:70px"></div></div>
+      <div class="r"><div class="line" style="width:56px"></div><div class="line f1"></div><div class="line" style="width:70px"></div></div>
+      <div class="r"><div class="line2" style="width:56px"></div><div class="line2 f1"></div><div class="line2" style="width:70px"></div></div>
+      <div class="r"><div class="line2" style="width:56px"></div><div class="line2 f1"></div><div class="line2" style="width:70px"></div></div>
+      <div class="bd p6 c f1" style="gap:5px"><span class="t">선택 알람 상세</span><div class="line2" style="width:80%"></div><div class="line2" style="width:66%"></div><div class="f1"></div><div class="r"><span class="chipd">SOP 조회</span><span class="chipd">리셋 요청</span></div></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1r">
+<div class="dv-olabel"><a class="dv-oid" href="#1r">1r</a>멀티모달 업로드 / 파싱 상태</div>
+<div class="dv-card">
+<div class="wf" style="width:460px;height:420px">
+  <div class="r p8 bar"><span class="h sm f1">파일 첨부</span><span class="chipd">✕</span></div>
+  <div class="c p8 f1">
+    <div class="bd p12 c ctr f1" style="gap:6px"><span class="sm">파일을 여기에 끌어다 놓기</span><span class="t">PDF · DOCX · PPTX · XLSX · TXT · MD · PNG · JPG</span><span class="t">파일당 최대 50MB</span><span class="btn">파일 선택</span></div>
+    <div class="b p6 c" style="gap:5px"><div class="r"><span class="sm f1">RGV_정비매뉴얼.pdf</span><span class="t">45MB</span><span class="chipd">✕</span></div><div class="line" style="width:72%;background:#2a78d6"></div><span class="t">파싱 중 72% · 텍스트/도표 청킹</span></div>
+    <div class="b p6 c" style="gap:5px"><div class="r"><span class="sm f1 wr">설비도면_archive.zip</span><span class="t wr">62MB</span><span class="chipd">✕</span></div><div class="bd p4 t wr">⚠ 미지원 포맷 / 용량 초과 — 업로드 차단</div></div>
+    <div class="r"><span class="chipd">☐ 프로젝트에 영구 저장</span><div class="f1"></div><span class="btn btnp">질의 계속</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1s">
+<div class="dv-olabel"><a class="dv-oid" href="#1s">1s</a>설정 — 신뢰도 임계치 · 위험도/승인 정책</div>
+<div class="dv-card">
+<div class="wf" style="width:620px;height:440px">
+  <div class="r p8 bar"><span class="h sm f1">관리자 설정</span><span class="chipd">변경 이력</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:150px"><div class="b p4 sm">신뢰도 임계치</div><div class="bd p4 sm">위험도 정책</div><div class="bd p4 sm">승인자 지정</div><div class="bd p4 sm">세션 만료</div><div class="bd p4 sm">계정/권한</div></div>
+    <div class="c p8 f1">
+      <span class="t">질의 유형별 RAG 신뢰도 기준값</span>
+      <div class="b p6 c" style="gap:6px"><div class="r"><span class="sm f1">일반 지식</span><span class="chipd">0.70</span></div><div class="line" style="width:70%"></div></div>
+      <div class="b p6 c" style="gap:6px"><div class="r"><span class="sm f1">안전 · 제어</span><span class="chipd">0.80</span></div><div class="line" style="width:80%"></div></div>
+      <div class="b p6 c" style="gap:6px"><div class="r"><span class="sm f1">긴급 알람</span><span class="chipd">0.75</span></div><div class="line" style="width:75%"></div></div>
+      <span class="t" style="margin-top:4px">제어 명령 위험도</span>
+      <div class="r"><div class="bd p4 t f1">명령</div><div class="bd p4 t" style="width:80px">위험도</div><div class="bd p4 t" style="width:96px">승인 요건</div></div>
+      <div class="r"><div class="line f1"></div><div class="line" style="width:80px"></div><div class="line" style="width:96px"></div></div>
+      <div class="r"><div class="line2 f1"></div><div class="line2" style="width:80px"></div><div class="line2" style="width:96px"></div></div>
+      <div class="bd p4 t">신규 명령 등록 시 최고 위험도 기본 적용</div>
+      <div class="r" style="justify-content:flex-end"><span class="btn">되돌리기</span><span class="btn btnp">저장</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1t">
+<div class="dv-olabel"><a class="dv-oid" href="#1t">1t</a>관리자 2차 승인 / 알림 센터</div>
+<div class="dv-card">
+<div class="wf" style="width:620px;height:440px">
+  <div class="r p8 bar"><span class="h sm f1">알림 센터</span><span class="chipd">승인 2</span><span class="chipd">제어 결과</span><span class="chipd">임계치</span></div>
+  <div class="r f1" style="gap:0">
+    <div class="c p8 sb" style="width:250px">
+      <div class="b p6 c" style="gap:4px"><div class="r"><span class="chip wr">승인 요청</span><span class="t f1">04:12 남음</span></div><span class="sm">S/C 1호기 알람 리셋 · 고위험</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="chipd">승인 요청</span><span class="sm">컨베이어 2라인 정지 해제</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="chipd">제어 결과</span><span class="sm">AGV-03 리셋 성공</span></div>
+      <div class="bd p6 c" style="gap:4px"><span class="chipd">임계치</span><span class="sm">주간 부정확 신고 10건 초과</span></div>
+      <div class="f1"></div><div class="bd p4 t ctr">모두 읽음</div>
+    </div>
+    <div class="c p8 f1">
+      <span class="h sm">제어 승인 요청 상세</span>
+      <div class="b p6 c" style="gap:5px"><div class="r"><span class="t" style="width:70px">요청자</span><span class="sm f1">OP-1002 김OO</span></div><div class="r"><span class="t" style="width:70px">대상 설비</span><span class="sm f1">S/C 1호기</span></div><div class="r"><span class="t" style="width:70px">명령</span><span class="sm f1">알람 원격 리셋 / E-203</span></div><div class="r"><span class="t" style="width:70px">위험도</span><span class="sm f1 wr">고위험</span></div></div>
+      <div class="bd p6 c" style="gap:4px"><span class="t">안전 체크리스트 결과</span><span class="sm">3 / 3 확인 완료 · 서명 있음</span></div>
+      <div class="bd p6 c f1" style="gap:4px"><span class="t">요청 맥락 (대화 발췌)</span><div class="line2" style="width:86%"></div><div class="line2" style="width:70%"></div></div>
+      <div class="r" style="justify-content:flex-end"><span class="btn btnw">반려</span><span class="btn btnp">승인</span></div>
+      <span class="t">미처리 시 대체 승인자 자동 전달</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1u">
+<div class="dv-olabel"><a class="dv-oid" href="#1u">1u</a>현장 태블릿 — 채팅 + SOP (장갑 조작용 큰 타깃)</div>
+<div class="dv-card">
+<div class="wf" style="width:420px;height:560px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">☰</span><span class="h sm f1">AGV 3호기</span><span class="chipd">🔔</span></div>
+  <div class="c p8 f1">
+    <div class="r" style="justify-content:flex-end"><div class="b g p6 sm">라인 이탈 알람 조치법</div></div>
+    <div class="b p8 c" style="gap:7px"><span class="t ac">신뢰도 0.86</span>
+      <div class="b p6 c" style="gap:4px"><span class="sm h">STEP 1 위치 센서 이물질 제거</span><div class="line" style="width:82%"></div></div>
+      <div class="b p6 c" style="gap:4px"><span class="sm h">STEP 2 제로점 재설정</span><div class="line2" style="width:70%"></div></div>
+      <div class="bd p4 t">출처 p.45 ▸</div>
+    </div>
+    <div class="r" style="flex-wrap:wrap"><span class="chip">AGV 3호기</span><span class="chip">S/C 1호기</span></div>
+    <div class="f1"></div>
+    <div class="r"><div class="b p12 f1 ctr sm">일지 작성</div><div class="b p12 f1 ctr sm">알람 리셋</div></div>
+    <div class="r b p8" style="align-items:center"><span class="t f1">입력…</span><span class="chipd" style="padding:6px 12px">🎤</span><span class="chipd" style="padding:6px 12px">📎</span><span class="btn btnp" style="padding:6px 14px">전송</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1v">
+<div class="dv-olabel"><a class="dv-oid" href="#1v">1v</a>현장 태블릿 — 안전 체크 + 실행 결과 / Fail-Safe</div>
+<div class="dv-card">
+<div class="wf" style="width:420px;height:560px">
+  <div class="r p8 bar" style="align-items:center"><span class="chipd">◂</span><span class="h sm f1">원격 제어 · AGV-03</span></div>
+  <div class="c p8 f1">
+    <div class="b p8 c" style="gap:8px"><span class="h sm">현장 안전 확인</span>
+      <div class="r b p8" style="align-items:center"><span class="chipd" style="padding:4px 10px">☑</span><span class="sm f1">작업자 접근 차단</span></div>
+      <div class="r b p8" style="align-items:center"><span class="chipd" style="padding:4px 10px">☑</span><span class="sm f1">물리 점검 완료</span></div>
+      <div class="r b p8" style="align-items:center"><span class="chipd" style="padding:4px 10px">☑</span><span class="sm f1">비상정지 스위치 정상</span></div>
+      <div class="b p8 ctr" style="justify-content:center">확인자 서명란</div>
+    </div>
+    <div class="b btnp p12 ctr" style="justify-content:center;font-weight:700">원격 제어 실행</div>
+    <div class="b p8 c" style="gap:5px"><span class="t">진행 상태</span><div class="line" style="width:60%;background:#2a78d6"></div><span class="t">중계 서버 응답 대기 1.5초…</span></div>
+    <div class="bd p8 c" style="gap:5px"><span class="t wr">⚠ 3초 초과 시 Fail-Safe 화면</span><span class="sm wr">제어가 차단되었습니다. 현장 수동 제어반에서 점검하세요.</span><div class="r"><span class="chipd">BCP 절차 보기</span><span class="chipd">핫라인</span></div></div>
+    <div class="f1"></div>
+    <div class="bd p6 t">성공 시 · TX-99021 / 감사 로그 기록됨 / 일지 작성 유도</div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">다음에 해볼 것: "<a class="dv-oid" href="#1c">1c</a> 방향으로 전체 화면 통일해줘" · "<a class="dv-oid" href="#1i">1i</a> 단계형을 <a class="dv-oid" href="#1u">1u</a> 태블릿에도 적용" · "<a class="dv-oid" href="#1b">1b</a> 대시보드 위젯 구성 다르게 3안"</p>
+</section>
+</x-dc>
+</body>
+</html>
