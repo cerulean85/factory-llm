@@ -3,3 +3,5 @@
 .DS_Sore
 titan/.env*
 .env*
+titan/node_modules
+titan/dist
