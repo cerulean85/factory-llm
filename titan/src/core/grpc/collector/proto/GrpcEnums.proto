@@ -1,0 +1,125 @@
+
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "HES.LIB.Communication.Grpc.Protos";
+
+package grpcCore;
+
+enum ScenarioQueueMessageType
+{
+    ScenarioQueueMessageType_Main = 0;
+    ScenarioQueueMessageType_Repeat = 1;
+    ScenarioQueueMessageType_Immediate = 2;
+}
+enum ScenarioModelMessageType
+{
+    ScenarioModelMessageType_Equip = 0;
+    ScenarioModelMessageType_Scenario = 1;
+    ScenarioModelMessageType_Step = 2;
+}
+
+enum ScenarioConditionMessageType
+{
+    ScenarioConditionMessageType_Ok = 0;
+    ScenarioConditionMessageType_Ng = 1;
+    ScenarioConditionMessageType_Switch = 2;
+    ScenarioConditionMessageType_Case = 3;
+    ScenarioConditionMessageType_Any = 4;
+}
+
+enum CommandResultMessageType
+{
+    CommandResultMessageType_Empty = 0;
+    CommandResultMessageType_Success = 1;
+    CommandResultMessageType_Processing = 2;
+    CommandResultMessageType_Cancel = 3;
+    CommandResultMessageType_Fail = 4;
+}
+
+enum SecsCommandMessageType
+{
+    SecsCommandMessageType_Send = 0;
+    SecsCommandMessageType_Receive = 1;
+}
+
+enum ScenarioResultMessageType
+{
+    ScenarioResultMessageType_Success = 0;
+    ScenarioResultMessageType_PreRunStepError = 1;
+    ScenarioResultMessageType_PostRunStepError = 2;
+    ScenarioResultMessageType_RunStepError = 3;
+    ScenarioResultMessageType_PreRunScenarioError = 4;
+    ScenarioResultMessageType_PostRunScenarioError = 5;
+    ScenarioResultMessageType_RunScenarioError = 6;
+}
+
+enum ActionValueMessageType
+{
+    ActionValueMessageType_Secs = 0;
+    ActionValueMessageType_Opcua = 1; 
+    ActionValueMessageType_Scenario = 2;
+    ActionValueMessageType_DataBase = 3;
+    ActionValueMessageType_Equipment = 4;
+}
+
+enum ScenarioMessageType
+{
+    ScenarioMessageType_Main = 0;
+    ScenarioMessageType_Sub = 1; 
+    ScenarioMessageType_Monitoring = 2;
+    ScenarioMessageType_Alarm = 3;
+    ScenarioMessageType_Interlock = 4;
+}
+
+enum StepMessageType
+{
+    StepMessageType_Step = 0;
+    StepMessageType_Alarm = 1; 
+    StepMessageType_Monitoring = 2;
+    StepMessageType_Interlock = 3;
+}
+
+enum SequenceTargetMessageType
+{
+    SequenceTargetMessageType_ScenarioValueMessageType_Tag = 0;
+    SequenceTargetMessageType_SharedVariable = 1;
+}
+
+enum ScenarioValueMessageType
+{
+    ScenarioValueMessageType_Static = 0;
+    ScenarioValueMessageType_Opcua = 1;
+    ScenarioValueMessageType_SharedVariable = 2;
+}
+
+enum ScenarioCommandMessageType
+{
+    ScenarioCommandMessageType_Write = 0;
+    ScenarioCommandMessageType_Read = 1;
+    ScenarioCommandMessageType_ReadInfinity = 2;
+    ScenarioCommandMessageType_TimeWait = 3;
+    ScenarioCommandMessageType_Changed = 4;
+    ScenarioCommandMessageType_Trace = 5;
+    ScenarioCommandMessageType_Scenario = 6;
+    ScenarioCommandMessageType_Check = 7;
+}
+
+enum DataMessageType
+{
+    DataMessageType_Int8 = 0;
+    DataMessageType_UInt8 = 1;
+    DataMessageType_Int16 = 2;
+    DataMessageType_UInt16 = 3;
+    DataMessageType_Int32 = 4;
+    DataMessageType_UInt32 = 5;
+    DataMessageType_Float = 6;
+    DataMessageType_Int64 = 7;
+    DataMessageType_UInt64 = 8;
+    DataMessageType_Double = 9;
+    DataMessageType_Bool = 10;
+    DataMessageType_String = 11;
+    DataMessageType_Binary = 12;
+    DataMessageType_Null = 13;
+}

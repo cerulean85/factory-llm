@@ -1,0 +1,42 @@
+export enum WARNING_ALARM {
+  WARN = 'WARN',
+  DANGER = 'DANGER',
+  DEFAULT = '',
+}
+
+export enum ALARM_HISTORY_TYPE {
+  EQUIPMENT = 'EQUIPMENT',
+  INVENTORY = 'INVENTORY',
+  PALLET = 'PALLET',
+  //LONG_TERM = 'LONG_TERM'
+}
+
+export enum ALARM_HISTORY_PROCESS_FLAG{
+  ALL = 'A',
+  PROCESSED = 'Y',
+  UNPROCESSED = 'N'
+}
+
+export enum ALERT_TYPE {
+  WARNING = 'WARNING',
+  DANGER = 'DANGER'
+}
+
+export enum SEND_MESSAGE_TYPE {
+  SMS = 'SMS',
+  SNS = 'SNS',
+  EMAIL = 'EMAIL',
+}
+
+export enum ALARM_KEYWORD_TYPE {
+  EQUIPMENT = 'EQUIPMENT',
+  ALARM_CODE = 'ALARM_CODE',
+  ALARM_DESCRIPTION = 'ALARM_DESCRIPTION',
+  USER_NAME = 'USER_NAME',
+}
+
+export enum INVENTORY_ALARM_TYPE {
+  STORED = 'STORED',
+  LONG_TERM = 'LONG_TERM',
+  ETC = 'ETC'
+}

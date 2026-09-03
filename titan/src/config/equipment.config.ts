@@ -1,0 +1,14 @@
+import { OPERATION_STATUS } from 'src/common/enum/equipment.enum';
+
+export const GANTRY_STATUS = new Map<OPERATION_STATUS, number[]>([
+  [OPERATION_STATUS.STOP, [0]],
+  [OPERATION_STATUS.FAULT, [98]],
+]);
+export const SC_STATUS = new Map<OPERATION_STATUS, number[]>([
+  [OPERATION_STATUS.START, [1, 2, 4]],
+  [OPERATION_STATUS.FAULT, [3, 5]],
+  [OPERATION_STATUS.STOP, [8]],
+]);
+export const RGV_STATUS = new Map<OPERATION_STATUS, number[]>([
+  [OPERATION_STATUS.STOP, [2,3,10,11,18,19,34,35,42,43,50,51,66,67,74,75,82,83,130,131,138,139,146,147,162,163,170,171,178,179,194,195,202,203,210,211]],
+]);

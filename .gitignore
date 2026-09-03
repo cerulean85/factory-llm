@@ -1,1 +1,5 @@
 /venv
+.vscode/
+.DS_Sore
+titan/.env*
+.env*

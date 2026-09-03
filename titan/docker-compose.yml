@@ -1,0 +1,26 @@
+version: '3'
+services:
+  nest-app:
+    build: .
+    container_name: titan-was
+    ports:
+      - "3300:3300"
+    restart: always
+    environment:
+      - NODE_ENV=development
+      - DATABASE_HOST=172.22.51.222
+      - DATABASE_PORT=5432
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=admin123!
+      - DATABASE_DATABASE=titan
+      - DEBUG_JWT_ENABLED=true
+      - DEBUG_GRPC_STREAMING_ENABLED=false
+      - DEBUG_EMAIL=false
+      - DEBUG_QUEUE_TABLE_SEARCH=true
+      - DEBUG_INSERT_DATA=false
+      - DEBUG_LONG_TERM_INVENTORY_ALARM=true
+      - DEBUG_TODO_SEARCH=true
+      - DEBUG_MIDDLEWARE=false
+      - DEBUG_SIMULATOR=false
+      - DEBUG_SMS=false
+      - DEBUG_VIEW_TABLE_SEARCH=true

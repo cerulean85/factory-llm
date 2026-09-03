@@ -1,0 +1,257 @@
+
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "GrpcEnums.proto";
+
+option csharp_namespace = "HES.LIB.Communication.Grpc.Protos";
+
+package grpcCore;
+
+//Current SharedVariable's Status
+message ConnectionStateMessage{
+  bool OpcuaConnState = 1;
+  bool SecsConneState = 2;
+}
+
+message HistoryInfoMessage {
+  int32 CurrentSize = 1;  
+}
+
+message ScenarioHistoryMessage{
+  int32 Seq = 1;
+  string EquipID = 2;
+  string EquipName = 3;
+  string ScenarioID = 4;
+  string ScenarioName = 5;
+  string StepID = 6;
+  string StepName = 7;
+  int32 StepSeq = 8;
+  ScenarioConditionMessageType StepCondition = 9;
+  string TagName = 10;
+  string Value = 11;
+  string CommandID = 12;
+  string CommandName = 13;
+  CommandResultMessageType CommandResult = 14;
+  ScenarioCommandMessageType CommandType = 15;
+  string Description = 16;
+  google.protobuf.Timestamp UpdatedTime = 17;
+  string FailReason = 18;
+}
+
+message EventSyncHistoryMessage{
+  int32 Seq = 1;
+  string EventSyncID = 2;
+  string EventSyncName = 3;
+  string CommandType = 4;
+  string CommandID = 5;
+  string CommandName = 6;
+  CommandResultMessageType CommandResult = 7;
+  string CommandCondition = 8;
+  string SourceType = 9;
+  string Source = 10;
+  string ValueType = 11;
+  string Value = 12;
+  string Description = 13;
+  google.protobuf.Timestamp UpdatedTime = 14;
+  string FailReason = 15;
+}
+
+message SecsMessageHistoryMessage{
+  int32 MessageID = 1;
+  int32 Seq = 2;
+  string ID = 3;
+  int32 StreamNumber = 4;
+  int32 FunctionNumber = 5;
+  string Name = 6;
+  SecsCommandMessageType CommandType = 7;
+  CommandResultMessageType CommandResult = 8;
+  string Value = 9;
+  string Description = 10;
+  google.protobuf.Timestamp UpdatedTime = 11;
+  string FailReason = 12;
+}
+
+//Current SharedVariable's Status
+message SharedVariableStatusMessage{
+  string Name = 1;
+  DataMessageType Type = 2;
+  string Description = 3;
+  google.protobuf.Timestamp UpdatedTime = 4;
+  string Value = 5;
+}
+
+//Current OpcuaTag Status
+message OpcuaTagMessage{
+  string Name = 1;
+  string Type = 2;
+  string Description = 3;
+  google.protobuf.Timestamp UpdatedTime = 4;
+  string Value = 5;
+}
+
+//BroadCast Changed Trace Message
+message ChangedTraceMessage{
+  string EquipID = 1;
+  string EquipName = 2;
+  string SeqValue = 3;
+  string TagName = 4;
+  google.protobuf.Value TagValue = 5;
+  DataMessageType TagType = 6;
+}
+
+//BroadCast Occurred Alarm Message
+message OccurredAlarmMessage{
+  string EquipID = 1;
+  string EquipName = 2;
+  string SeqValue = 3;
+  string RunScenarioID = 4;
+  string TagName = 5;
+  google.protobuf.Value TagValue = 6;
+  DataMessageType TagType = 7;
+}
+
+//Duplex BroadCast Message sent after trigger execution
+message TriggerEventMessage {
+  string EventSyncID = 1;
+  string ID = 2;
+  oneof MessageModel {
+      SecsTriggerEventMessage secsTriggerEventMessage = 3;
+      ScenarioTriggerEventMessage scenarioTriggerEventMessage = 4;
+      TagTriggerEventMessage tagTriggerEventMessage = 5;
+      SharedVariableTriggerEventMessage sharedVariableTriggerEventMessage = 6;
+  }
+}
+
+//Trigger message of type Secs
+message SecsTriggerEventMessage {
+  int32 MessageID = 1;
+  string SecsID = 2;
+  int32 StreamNumber = 3;
+  int32 FunctionNumber = 4;
+  string SecsName = 5;
+}
+
+//Trigger message of type Scenario
+message ScenarioTriggerEventMessage {
+    string ScenarioID = 1;
+    string ScenarioName = 2;
+    string ScenarioType = 3;
+    ScenarioResultMessageType ScenarioResult = 4;
+}
+
+//Trigger message of type Tag
+message TagTriggerEventMessage {
+  string TagName = 1;
+  string TagValue = 2;
+}
+
+//Trigger message of type SharedVariable
+message SharedVariableTriggerEventMessage {
+  string SharedVariableName = 1;
+  string SharedVariableValue = 2;
+}
+
+//Duplex BroadCast Message sent after an action is executed
+message ActionEventMessage{
+  string EventSyncID = 1;
+  string ID = 2;
+  ActionValueMessageType Type = 3;
+  string Name = 4;
+  string FailActionID = 5;
+}
+
+message EquipMessage{
+  string AppID = 1;
+  string ID = 2;
+  string Name = 3;
+  string Type = 4; 
+}
+
+message ScenarioMessage{
+  int32 Seq = 1;
+  string AppID = 2;
+  string EquipID = 3;
+  string EquipName = 4;
+  string ID = 5;
+  string Name = 6;
+  ScenarioMessageType Type = 7; 
+}
+
+message StepMessage{
+  int32 Seq = 1;
+  string EquipID = 2;
+  string EquipName = 3;
+  string ScenarioID = 4;
+  string ScenarioName = 5;
+  string ID = 6;
+  string Name = 7;
+  string Value = 8;
+  string Value2 = 9;
+  StepMessageType Type = 10; 
+}
+
+message SeqMessage{
+  int32 Seq = 1;
+  string EquipID = 2;
+  string EquipName = 3;
+  string ScenarioID = 4;
+  string ScenarioName = 5;
+  string StepID = 6;
+  string StepName = 7;
+  string ID = 8;
+  string Name = 9;
+  string Value = 10;
+  string Value2 = 11;
+  SequenceTargetMessageType TargetType = 12; 
+  ScenarioValueMessageType ValueType = 13; 
+  ScenarioCommandMessageType CommandType = 14; 
+  bool Branch = 15;
+  bool BranchEnd = 16;
+  DataMessageType DataType = 17;
+  string StepSource = 18;
+  bool InterfaceLog = 19;
+  string Description = 20;
+}
+
+message ScenarioCommandMessage{
+  int32 Priority = 1;
+  string CommandID = 2;
+  string CommandName = 3;
+  string EquipID = 4;
+  string EquipName = 5;
+  string ScenarioID = 6;
+  string ScenarioName = 7;
+  string Description = 8;
+  CommandResultMessageType CommandResult = 9;
+  google.protobuf.Timestamp CreateTime = 10;
+}
+
+//Duplex BroadCast Message sent before the scenario is executed
+message PreScenarioEventMessage{
+    ScenarioMessage ScenarioMessage = 1;
+}
+
+//Duplex BroadCast Message sent after the scenario is executed
+message PostScenarioEventMessage{
+    ScenarioMessage ScenarioMessage = 1;
+    ScenarioResultMessageType ScenarioResult = 2;
+}
+
+//Duplex BroadCast Message sent before the step is executed
+message PreStepEventMessage{
+    StepMessage StepMessage = 1;
+}
+
+//Duplex BroadCast Message sent after the step is executed
+message PostStepEventMessage{
+    StepMessage StepMessage = 1;
+    ScenarioResultMessageType ScenarioResult = 2;
+}
+
+//Duplex BroadCast Message sent after the seq is executed
+message RunSeqEventMessage{
+    SeqMessage SeqMessage = 1;
+    ScenarioResultMessageType ScenarioResult = 2;
+}

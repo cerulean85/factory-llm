@@ -1,0 +1,264 @@
+
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "GrpcEnums.proto";
+import "GrpcMessageModels.proto";
+
+option csharp_namespace = "HES.LIB.Communication.Grpc.Protos";
+
+package grpcCore;
+
+// The Subscriber service definition.
+service GrpcCore {
+  // Connection Status Check
+    rpc InitConnection(Connection) returns (ConnectionResult);
+  // Sends a Subscribe
+    rpc Subscribe(SubscribeRequest) returns (stream SubscriberEvent);
+    rpc OPCUASubscribe(SubscribeRequest) returns (stream OPCUASubscriberEvent);
+  // Duplex Connection by Custom Code
+    rpc EventSyncDuplexSubscribe(stream DuplexSubscribeRequest) returns (stream EventSyncDuplexSubscriberEvent);
+    rpc ScenarioDuplexSubscribe(stream DuplexSubscribeRequest) returns (stream ScenarioDuplexSubscriberEvent);
+    
+    rpc EquipCycle(EquipCycleRequest) returns (CallBackResult);
+    rpc ResetEquipQueue(ResetEquipQueueRequest) returns (CallBackResult);
+    rpc StartScenario(StartScenarioRequest) returns (CallBackResult);
+    rpc CancelScenario(CancelScenarioRequest) returns (CallBackResult);
+
+    rpc GetID(GetIDRequest) returns (ReceiveIDMessage);
+
+    rpc GetEquipList(EquipRequest) returns (ReceiveEquipListMessage);
+    rpc GetScenarioList(ScenarioRequest) returns (ReceiveScenarioListMessage);
+    rpc GetStepList(StepRequest) returns (ReceiveStepListMessage);
+    rpc GetSeqList(SeqRequest) returns (ReceiveSeqListMessage);
+
+    rpc GetSharedVariableStatusMessage(GetSharedVariableStatusMessageRequest) returns (ReceiveSharedVariableStatusMessage);
+    rpc SetSharedVariableStatusMessage(SetSharedVariableStatusMessageRequest) returns (CallBackResult);
+    rpc GetSharedVariableStatusMessageList(GetSharedVariableStatusMessageListRequest) returns (ReceiveSharedVariableStatusMessageList);
+
+    rpc GetOPCUATag(GetOPCUATagRequest) returns (ReceiveOPCUATagMessage);
+    rpc GetOPCUATagList(GetOPCUATagRequest) returns (ReceiveOPCUATagMessageList);
+    rpc SetOPCUATag(SetOPCUATagRequest) returns (CallBackResult);
+    
+    rpc GetMainQueueCommandList(GetMainQueueCommandListRequest) returns (ReceiveScenarioCommandMessageList);
+
+    rpc GetCurrentHistorySize(EmptyRequest) returns (HistorySizeResult);
+}
+
+// The request message check the connection.
+message Connection{
+  string ClientId = 1;
+}
+
+// The response message check the connection.
+message ConnectionResult {
+  bool Result = 1;
+}
+
+// The request message subscribe a CoreService.
+message SubscribeRequest {
+  string ClientId = 1;
+}
+
+// The response message is sending to subscribe Clients.
+message SubscriberEvent {
+  string Id = 1;
+  string Message = 2;
+  oneof MessageModel {
+      ScenarioHistoryMessage scenarioHistoryMessage = 3;
+      EventSyncHistoryMessage eventSyncHistoryMessage = 4;
+      SecsMessageHistoryMessage secsMessageHistoryMessage = 5;
+      SharedVariableStatusMessage sharedVariableStatusMessage = 6;
+      ConnectionStateMessage connectionStateMessage = 7;
+  }
+  int32 HistoryLogSize = 8;
+}
+
+// The response message is sending to subscribe Clients.
+message OPCUASubscriberEvent {
+  string Id = 1;
+  string Message = 2;
+  oneof MessageModel {
+      ChangedTraceMessage changedTraceMessage = 3;
+      OccurredAlarmMessage occurredAlarmMessage = 4;
+  }
+}
+
+// The request message duplex subscribe a CoreService.
+// If result is false, Cancel this Action.
+message DuplexSubscribeRequest {
+  string Id = 1;
+  string ClientId = 2;
+  bool Result = 3;
+}
+
+// The response EventSync message is sending to duplex subscribe Clients.
+message EventSyncDuplexSubscriberEvent {
+  string Id = 1;
+  string Message = 2;
+  bool Result = 3;
+  oneof MessageModel {
+      TriggerEventMessage triggerEventMessage = 4;
+      ActionEventMessage actionEventMessage = 5;
+  }
+}
+
+// The response Scenario message is sending to duplex subscribe Clients.
+message ScenarioDuplexSubscriberEvent {
+  string Id = 1;
+  string Message = 2;
+  bool Result = 3;
+  string CommandID = 4;
+  string CommandName = 5;
+  oneof MessageModel {
+      PreScenarioEventMessage preScenarioEventMessage = 6;
+      PostScenarioEventMessage postScenarioEventMessage = 7;
+      PreStepEventMessage preStepEventMessage = 8;
+      PostStepEventMessage postStepEventMessage = 9;
+      RunSeqEventMessage runSeqEventMessage = 10;
+  }
+}
+
+//�ݹ� �Լ� ���� �����
+message CallBackResult{
+    bool Result = 1;
+    string FailReason = 2;
+}
+
+message EquipCycleRequest{
+    string EquipID = 1;
+    bool RunningFlag = 2;
+}
+
+message ResetEquipQueueRequest{
+    string EquipID = 1;
+}
+
+message EmptyRequest {
+
+}
+
+message HistorySizeResult {
+    int32 historySize = 1;
+    string FailReason = 2;
+
+}
+
+message StartScenarioRequest{
+    string ScenarioID = 1;
+    int32 Priority = 2;
+    ScenarioQueueMessageType ScenarioQueueType = 3;
+    string CommandID = 4;
+    string CommandName = 5;
+}
+
+message CancelScenarioRequest{
+    string EquipID = 1;
+    string ScenarioID = 2;
+    string CommandID = 3;
+}
+
+message GetIDRequest{
+    ScenarioModelMessageType ModelType = 1;
+    string EquipName = 2;
+    string ScenarioName = 3;
+    string StepName = 4;
+}
+
+message ReceiveIDMessage{
+    string ID = 1;
+    string FailReason = 2;
+}
+
+message EquipRequest{
+    string EquipName = 1;
+}
+
+message ScenarioRequest{
+    string EquipID = 1;
+    string ScenarioName = 2;
+}
+
+message StepRequest{
+    string EquipID = 1;
+    string ScenarioID = 2;
+    string StepName = 3;
+}
+
+message SeqRequest{
+    string EquipID = 1;
+    string ScenarioID = 2;
+    string StepID = 3;
+}
+
+message ReceiveEquipListMessage{
+    repeated EquipMessage EquipList = 1;
+    string FailReason = 2;
+}
+
+message ReceiveScenarioListMessage{
+    repeated ScenarioMessage ScenarioList = 1;
+    string FailReason = 2;
+}
+
+message ReceiveStepListMessage{
+    repeated StepMessage StepList = 1;
+    string FailReason = 2;
+}
+
+message ReceiveSeqListMessage{
+    repeated SeqMessage SeqList = 1;
+    string FailReason = 2;
+}
+
+
+message GetSharedVariableStatusMessageRequest{
+    string Name = 1;
+}
+
+message SetSharedVariableStatusMessageRequest{
+    string Name = 1;
+    string Value = 2;
+}
+
+message GetSharedVariableStatusMessageListRequest{
+    string Name = 1;
+}
+
+message GetOPCUATagRequest{
+    string TagName = 1;
+}
+
+message SetOPCUATagRequest{
+    string TagName = 1;
+    string TagValue = 2;
+}
+
+message ReceiveSharedVariableStatusMessage{
+    SharedVariableStatusMessage SharedVariableStatus = 1;
+    string FailReason = 2;
+}
+
+message ReceiveSharedVariableStatusMessageList{
+    repeated SharedVariableStatusMessage SharedVariableStatusMessageList = 1;
+    string FailReason = 2;
+}
+
+message ReceiveOPCUATagMessage{
+    OpcuaTagMessage OpcuaTag = 1;
+    string FailReason = 2;
+}
+message ReceiveOPCUATagMessageList{
+    repeated OpcuaTagMessage OpcuaTagMessageList = 1;
+    string FailReason = 2;
+}
+
+message GetMainQueueCommandListRequest{
+    string EquipID = 1;
+}
+
+message ReceiveScenarioCommandMessageList{
+    repeated ScenarioCommandMessage ScenarioCommandMessageList = 1;
+    string FailReason = 2;
+}
+
