@@ -9,7 +9,6 @@ CLAS_PROMPT_PATH = os.path.join(os.path.dirname(__file__), "prompt", "clas-slm.m
 PLAN_PROMPT_PATH = os.path.join(os.path.dirname(__file__), "prompt", "plan-slm.md")
 PROC_PROMPT_PATH = os.path.join(os.path.dirname(__file__), "prompt", "proc-slm.md")
 
-
 def load_system_prompt(file_path: str) -> str:
     """프롬프트 마크다운 파일을 읽어옵니다."""
     try:
@@ -18,6 +17,7 @@ def load_system_prompt(file_path: str) -> str:
     except Exception as e:
         print(f"프롬프트 파일을 읽는 중 오류 발생: {e}")
         return ""
+
 
 def chat_ollama_gemma2_2b_clas_slm(user_input: str):
     system_prompt = load_system_prompt(CLAS_PROMPT_PATH)
@@ -37,6 +37,7 @@ def chat_ollama_gemma2_2b_clas_slm(user_input: str):
         return response['message']['content']
     except Exception as e:
         print(f"오류가 발생했습니다: {e}")
+
 
 def chat_ollama_gemma2_2b_plan_slm(user_input: str):
     system_prompt = load_system_prompt(PLAN_PROMPT_PATH)
@@ -64,5 +65,4 @@ if __name__ == "__main__":
     print(f"분류된 카테고리: {category}")
     plan = chat_ollama_gemma2_2b_plan_slm(test_query)
     print(f"계획된 작업: {plan}")
-
 
